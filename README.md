@@ -5,6 +5,7 @@
 Branch Name: 001-DEVfnicolealcid-homepage
 
 12-23-2023 Version 1
+
 **Release Highlights**
 1. Created a homepage.
 2. Fixed UI.
