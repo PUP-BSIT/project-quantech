@@ -50,7 +50,8 @@ document.addEventListener('DOMContentLoaded', function () {
             return trackingData; // Show all items if no filters selected
         }
 
-        return trackingData.filter(row => selectedFilters.includes(row[2].toLowerCase()));
+        return trackingData.filter(row => selectedFilters.includes
+            (row[2].toLowerCase()));
     }
 
     const rowLimit = 5;
@@ -62,7 +63,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function populateTrackingData(data) {
          // Display only the specified number of rows initially
-         for (let index = 0; index < currentRowLimit && index < data.length; index++) {
+         for (let index = 0; index < currentRowLimit 
+            && index < data.length; index++) {
             const rowClass = (index === 0) ? 'light-blue' : '';
             const newRow = createRow(data[index], rowClass);
             tableBody.appendChild(newRow);
@@ -82,11 +84,13 @@ document.addEventListener('DOMContentLoaded', function () {
     
                 if (colIndex === 2) {
                     cell.className = 'status-cell';
-                    cell.innerHTML = `${value} <button class="details-button">View Details</button>`;
+                    cell.innerHTML = `${value} 
+                    <button class="details-button">View Details</button>`;
                     
                     const detailsButton = cell.querySelector('.details-button');
                     detailsButton.addEventListener('click', function () {
-                        window.location.href = 'order_details/order_details.html';
+                        window.location.href = 
+                        'order_details/order_details.html';
                     });
                 } else {
                     cell.innerHTML = value;
@@ -112,8 +116,10 @@ document.addEventListener('DOMContentLoaded', function () {
     function updateTable() {
         tableBody.innerHTML = '';
         populateTrackingData(trackingData);
-        viewMoreButton.style.display = (currentRowLimit < trackingData.length) ? 'block' : 'none';
-        viewLessButton.style.display = (currentRowLimit > rowLimit) ? 'block' : 'none';
+        viewMoreButton.style.display = (currentRowLimit < 
+            trackingData.length) ? 'block' : 'none';
+        viewLessButton.style.display = (currentRowLimit 
+            > rowLimit) ? 'block' : 'none';
     }
 
     function filterTrackingData(query) {
@@ -122,7 +128,8 @@ document.addEventListener('DOMContentLoaded', function () {
             const receiverAddress = row[1].toLowerCase();
             const lowercasedQuery = query.toLowerCase();
 
-            return receiverName.includes(lowercasedQuery) || receiverAddress.includes(lowercasedQuery);
+            return receiverName.includes(lowercasedQuery) || 
+            receiverAddress.includes(lowercasedQuery);
         });
 
         return filteredData;
@@ -133,7 +140,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
         populateTrackingData(filteredData);
         if (filteredData.length > rowLimit) {
-            document.querySelector('.view-more-button').style.display = 'block';
+            document.querySelector('.view-more-button').style.display 
+            = 'block';
         } else {
             document.querySelector('.view-more-button').style.display = 'none';
         }
@@ -152,14 +160,20 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    document.querySelector('.view-more-button').addEventListener('click', showMoreRows);
-    document.querySelector('.view-less-button').addEventListener('click', showLessRows);
+    document.querySelector('.view-more-button').addEventListener
+    ('click', showMoreRows);
+    document.querySelector('.view-less-button').addEventListener
+    ('click', showLessRows);
 
     populateTrackingData(trackingData);
 
     // OpenWeatherMap integration
     const weatherWidgetContainer = document.getElementById('weatherWidget');
-    const apiUrl = 'https://api.openweathermap.org/data/2.5/weather?lat=14.5204&lon=121.0190&appid=b08f0dc18be515f55ecea4bc67c6abb5&units=metric';
+    const apiUrl =
+    'https://api.openweathermap.org/data/2.5/weather?' +
+    'lat=14.5204&lon=121.0190&' +
+    'appid=b08f0dc18be515f55ecea4bc67c6abb5&units=metric';
+
 
 
     // Make a request to OpenWeatherMap API to get weather data
@@ -175,7 +189,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Modified the weatherHtml to include the cloud icon
         const weatherHtml = `<div class="temperature-container">
-                                <img class="cloud-icon" src="upload/cloud.png" alt="Cloud Icon">
+                                <img class="cloud-icon" src="upload/cloud.png" 
+                                alt="Cloud Icon">
                                 <p class="temperature">${temperature} °C</p>
                              </div>
                              <p class="description">${description}</p>`;
