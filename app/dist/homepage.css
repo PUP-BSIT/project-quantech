@@ -130,16 +130,21 @@ tr:hover {
 
 .weather-widget-container {
     text-align: center;
-    margin-top: 30px;
+    margin-top: 150px;
     margin-right: 30px;
 }
 
 .weather-info {
     background-color: #0e81e4; 
+    text-align: center;
     color: #fff; 
     padding: 15px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 230px; /* Set a fixed width for the weather box */
+    height: 200px; /* Set a fixed height for the weather box */
+    overflow: hidden; /* Add overflow for content longer than the box */
+    box-sizing: border-box; /* Include padding in width/height calculation */
 }
 
 .weather-info h2 {
@@ -165,8 +170,10 @@ tr:hover {
 }
 
 .description {
-    font-size: 16px;
+    font-size: 14px;
     color: #fff; 
+    text-align: center;
+    padding-right: 10px;
 }
 
 .qdexpress-logo-container {
@@ -184,11 +191,82 @@ tr:hover {
     font-size: 18px;
     line-height: 1.6;
     color: black;
-    margin-top: 0px;
-    text-align: justify;
-    padding: 10px;
+    margin-top: 20px;
+    text-align: left;
+    padding: 30px;
 }
 
 .additional-text h2 {
     color: #0d44af; 
+}
+
+/* Add styles for the filter button, modal, and checkboxes */
+.filter-button {
+    padding: 20px;
+    margin-right: 30px; 
+    cursor: pointer;
+    display: inline-block;
+}
+
+.filter-button img {
+    width: 20px; /* Adjust the width as needed */
+    height: 20px; /* Adjust the height as needed */
+}
+
+.filter-modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    z-index: 1;
+}
+
+.modal-content {
+    width: 300px;
+    padding: 20px;
+}
+
+.modal-header {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    font-weight: bold;
+}
+
+.modal-body {
+    padding: 10px 0;
+}
+
+.filter-checkbox {
+    margin-bottom: 10px;
+}
+
+.modal-footer {
+    text-align: right;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.modal-footer button {
+    padding: 10px;
+    background-color: #0d44af;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+#backButton {
+    background-color: #ccc;
+    color: #333;
+    margin-right: 10px;
+}
+
+#applyFilterButton {
+    background-color: #0d44af;
+    color: #fff;
 }

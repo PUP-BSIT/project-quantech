@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
+    
     const trackingData = [
         ['John Doe', '123 Main St, Cityville', 'Pending'],
         ['Jane Smith', '456 Oak St, Townsville', 'Completed'],
@@ -8,18 +9,67 @@ document.addEventListener('DOMContentLoaded', function () {
         ['Simounne Cruz', 'Signal, Taguig City', 'Pending'],
     ];
 
+    const filterButton = document.getElementById('filterButton');
+    const filterModal = document.getElementById('filterModal');
+    const backButton = document.getElementById('backButton');
+    const applyFilterButton = document.getElementById('applyFilterButton');
+    const filterCheckboxes = document.querySelectorAll('.filter-checkbox');
+
+    let currentState; 
+
+    filterButton.addEventListener('click', function () {
+        currentState = window.location.href;
+        filterModal.style.display = 'block';
+    });
+
+    backButton.addEventListener('click', function () {
+        // If there is a stored state, navigate back to it
+        if (currentState) {
+            window.location.href = currentState;
+        } else {
+            // Go back in the browser history if no stored state
+            history.back();
+        }
+    });
+
+    applyFilterButton.addEventListener('click', function () {
+        // Apply filter logic based on selected checkboxes
+        const selectedFilters = Array.from(filterCheckboxes)
+            .filter(checkbox => checkbox.checked)
+            .map(checkbox => checkbox.value);
+
+        const filteredData = filterTrackingDataByStatus(selectedFilters);
+        updateTrackingTable(filteredData);
+
+        // Hide the filter modal after applying the filter
+        filterModal.style.display = 'none';
+    });
+
+    function filterTrackingDataByStatus(selectedFilters) {
+        if (selectedFilters.length === 0) {
+            return trackingData; // Show all items if no filters selected
+        }
+
+        return trackingData.filter(row => selectedFilters.includes(row[2].toLowerCase()));
+    }
+
     const rowLimit = 5;
+    let currentRowLimit = rowLimit;
     const tableBody = document.getElementById('trackingBody');
+    const searchInput = document.getElementById('searchInput');
+    const viewMoreButton = document.querySelector('.view-more-button');
+    const viewLessButton = document.querySelector('.view-less-button');
 
-    function populateTrackingData() {
-        trackingData.slice(0, rowLimit).forEach((rowData, index) => {
+    function populateTrackingData(data) {
+         // Display only the specified number of rows initially
+         for (let index = 0; index < currentRowLimit && index < data.length; index++) {
             const rowClass = (index === 0) ? 'light-blue' : '';
-            const newRow = createRow(rowData, rowClass);
+            const newRow = createRow(data[index], rowClass);
             tableBody.appendChild(newRow);
-        });
+        }
 
-        if (trackingData.length > rowLimit) {
-            document.querySelector('.view-more-button').style.display = 'block';
+        if (data.length > rowLimit) {
+            viewMoreButton.style.display = 'block';
         }
     }
 
@@ -43,42 +93,77 @@ document.addEventListener('DOMContentLoaded', function () {
         return newRow;
     }
 
-    populateTrackingData();
-
     function showMoreRows() {
-        const startIndex = tableBody.children.length;
-        const endIndex = startIndex + rowLimit;
-
-        for (let index = startIndex; index < endIndex && index < trackingData.length; index++) {
-            const rowClass = (index === 0) ? 'light-blue' : '';
-            const newRow = createRow(trackingData[index], rowClass);
-            tableBody.appendChild(newRow);
-        }
-
-        if (endIndex >= trackingData.length) {
-            document.querySelector('.view-more-button').style.display = 'none';
-            document.querySelector('.view-less-button').style.display = 'block';
-        }
+        currentRowLimit = trackingData.length; // Show all rows
+        updateTable();
     }
 
     function showLessRows() {
-        const rowLimit = 5;
-
-        // Remove rows added by showMoreRows()
-        for (let index = trackingData.length; index >= rowLimit; index--) {
-            tableBody.removeChild(tableBody.lastChild);
-        }
-
-        document.querySelector('.view-more-button').style.display = 'block';
-        document.querySelector('.view-less-button').style.display = 'none';
+        currentRowLimit = rowLimit; // Reset to the initial row limit
+        updateTable();
     }
+
+    function updateTable() {
+        // Clear the table body
+        tableBody.innerHTML = '';
+        // Populate the table with the specified number of rows
+        populateTrackingData(trackingData);
+        // Update visibility of view more/less buttons based on row limit
+        viewMoreButton.style.display = (currentRowLimit < trackingData.length) ? 'block' : 'none';
+        viewLessButton.style.display = (currentRowLimit > rowLimit) ? 'block' : 'none';
+    }
+
+    function filterTrackingData(query) {
+        const filteredData = trackingData.filter(row => {
+            const receiverName = row[0].toLowerCase();
+            const receiverAddress = row[1].toLowerCase();
+            const lowercasedQuery = query.toLowerCase();
+
+            return receiverName.includes(lowercasedQuery) || receiverAddress.includes(lowercasedQuery);
+        });
+
+        return filteredData;
+    }
+
+    function updateTrackingTable(filteredData) {
+        // Clear the table body
+        tableBody.innerHTML = '';
+
+        // Populate the table with the filtered data
+        populateTrackingData(filteredData);
+
+        // Update visibility of view more/less buttons based on filtered data length
+        if (filteredData.length > rowLimit) {
+            document.querySelector('.view-more-button').style.display = 'block';
+        } else {
+            document.querySelector('.view-more-button').style.display = 'none';
+        }
+    }
+
+    searchInput.addEventListener('input', function () {
+        const searchQuery = searchInput.value.trim();
+
+        console.log('Search query:', searchQuery);
+
+        if (searchQuery !== '') {
+            const filteredData = filterTrackingData(searchQuery);
+            updateTrackingTable(filteredData);
+        } else {
+            // If search input is empty, display the original tracking data
+            updateTrackingTable(trackingData);
+        }
+    });
 
     document.querySelector('.view-more-button').addEventListener('click', showMoreRows);
     document.querySelector('.view-less-button').addEventListener('click', showLessRows);
 
+    // Initially, display the full tracking list
+    populateTrackingData(trackingData);
+
     // OpenWeatherMap integration
     const weatherWidgetContainer = document.getElementById('weatherWidget');
     const apiUrl = 'https://api.openweathermap.org/data/2.5/weather?lat=14.5204&lon=121.0190&appid=b08f0dc18be515f55ecea4bc67c6abb5&units=metric';
+
 
     // Make a request to OpenWeatherMap API to get weather data
     fetch(apiUrl)
@@ -100,4 +185,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         weatherWidgetContainer.innerHTML = weatherHtml;
     }
+
+    
 });

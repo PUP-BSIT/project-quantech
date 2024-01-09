@@ -11,8 +11,10 @@
 <body>
     <div class="app-container">
         <div class="header">
-            <div class="qdexpress-logo-container">
-                <img class="qdexpress-logo" src="upload/qdexpress-logo.jpg" alt="QDExpress Logo">
+            <div class="additional-text">
+                <h1>QDExpress</h1>
+                <h2>Hey rider, User123</h2>
+                <p>How's it going today? Are you excited for your next adventure with QDExpress? Our fleet of top-of-the-line vehicles is waiting to take you anywhere you need to go.</p>
             </div>
             <!-- Weather widget container -->
             <div class="weather-widget-container">
@@ -22,18 +24,32 @@
                 </div>
             </div>
         </div>
-        <div class="content">
-            <div class="additional-text">
-                <h2>Hey rider, User123</h2>
-                <p>How's it going today? Are you excited for your next adventure with QDExpress? Our fleet of top-of-the-line vehicles is waiting to take you anywhere you need to go.</p>
-            </div>
-
             <div class="search-container">
+                <!-- <div class="search-input-container">
+                    <input type="text" id="searchInput" class="search-input" placeholder="Search">
+                    <img class="search-icon" src="upload/search.png" alt="Search Icon - Magnifying Glass">
+                </div> -->
                 <div class="search-input-container">
                     <input type="text" id="searchInput" class="search-input" placeholder="Search">
                     <img class="search-icon" src="upload/search.png" alt="Search Icon - Magnifying Glass">
-                </div>
+                    <div class="filter-button" id="filterButton">
+                        <img src="upload/filter.png" alt="Filter Icon">
+                    </div>
+                    <div class="filter-modal" id="filterModal">
+                        <div class="modal-content">
+                            <div class="modal-header">Filters</div>
+                            <div class="modal-body">
+                                <label><input type="checkbox" class="filter-checkbox" value="pending"> Pending</label>
+                                <label><input type="checkbox" class="filter-checkbox" value="completed"> Completed</label>
+                            </div>
+                            <div class="modal-footer">
+                                <button id="backButton">Back</button>
+                                <button id="applyFilterButton">Apply Filter</button>
+                            </div>
+                        </div>
+                    </div>
             </div>
+                
             <!-- Table to display tracking information -->
             <div class="tracking-table">
                 <table id="trackingTable">
@@ -49,20 +65,20 @@
                 <button class="view-more-button">View More</button>
                 <button class="view-less-button">View Less</button>
             </div>
-        </div>
-        <div class="footer-navigation">
-            <a href="index.php" class="navigation-button active">
-                <img src="upload/homepage.png" alt="Home Icon">
-                Home
-            </a>
-            <a href="tracking.php" class="navigation-button">
-                <img src="upload/tracking.png" alt="Order Icon">
-                Deliver Status
-            </a>
-            <a href="notifications.php" class="navigation-button">
-                <img src="upload/order.png" alt="Tracking Icon">
-                Notifications
-            </a>
+            <div class="footer-navigation">
+                <a href="index.php" class="navigation-button active">
+                    <img src="upload/homepage.png" alt="Home Icon">
+                    Home
+                </a>
+                <a href="tracking.php" class="navigation-button">
+                    <img src="upload/tracking.png" alt="Order Icon">
+                    Deliver Status
+                </a>
+                <a href="notifications.php" class="navigation-button">
+                    <img src="upload/order.png" alt="Tracking Icon">
+                    Notifications
+                </a>
+            </div>
         </div>
     </div>
     <link rel="stylesheet" href="includes/footer.css">

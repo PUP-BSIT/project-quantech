@@ -1,3 +1,4 @@
+
 .footer-navigation {
     display: flex;
     justify-content: space-around;
@@ -25,6 +26,10 @@
 
 .footer-navigation .navigation-button.active {
     font-weight: bold; /* Set the bold font for the active link */
+}
+
+.content {
+    margin-bottom: 60px;
 }
 
 .content {
