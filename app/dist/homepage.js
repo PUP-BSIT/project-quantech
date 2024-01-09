@@ -73,42 +73,45 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    function createRow(data, rowClass) {
-        const newRow = document.createElement('tr');
-        newRow.className = rowClass;
-
-        data.forEach((value, colIndex) => {
-            if (colIndex === 2) {
+        function createRow(data, rowClass) {
+            const newRow = document.createElement('tr');
+            newRow.className = rowClass;
+    
+            data.forEach((value, colIndex) => {
                 const cell = document.createElement('td');
-                cell.className = 'status-cell';
-                cell.innerHTML = `${value}<button class="details-button">View Details</button>`;
+    
+                if (colIndex === 2) {
+                    cell.className = 'status-cell';
+                    cell.innerHTML = `${value} <button class="details-button">View Details</button>`;
+                    
+                    const detailsButton = cell.querySelector('.details-button');
+                    detailsButton.addEventListener('click', function () {
+                        window.location.href = 'order_details/order_details.html';
+                    });
+                } else {
+                    cell.innerHTML = value;
+                }
+    
                 newRow.appendChild(cell);
-            } else {
-                const cell = document.createElement('td');
-                cell.innerHTML = value;
-                newRow.appendChild(cell);
-            }
-        });
-
+            });
+            
         return newRow;
     }
 
     function showMoreRows() {
-        currentRowLimit = trackingData.length; // Show all rows
+        currentRowLimit = trackingData.length; 
         updateTable();
     }
 
     function showLessRows() {
-        currentRowLimit = rowLimit; // Reset to the initial row limit
+        currentRowLimit = rowLimit; 
         updateTable();
     }
 
+    // Populate the table with the specified number of rows
     function updateTable() {
-        // Clear the table body
         tableBody.innerHTML = '';
-        // Populate the table with the specified number of rows
         populateTrackingData(trackingData);
-        // Update visibility of view more/less buttons based on row limit
         viewMoreButton.style.display = (currentRowLimit < trackingData.length) ? 'block' : 'none';
         viewLessButton.style.display = (currentRowLimit > rowLimit) ? 'block' : 'none';
     }
@@ -126,13 +129,9 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function updateTrackingTable(filteredData) {
-        // Clear the table body
         tableBody.innerHTML = '';
 
-        // Populate the table with the filtered data
         populateTrackingData(filteredData);
-
-        // Update visibility of view more/less buttons based on filtered data length
         if (filteredData.length > rowLimit) {
             document.querySelector('.view-more-button').style.display = 'block';
         } else {
@@ -149,7 +148,6 @@ document.addEventListener('DOMContentLoaded', function () {
             const filteredData = filterTrackingData(searchQuery);
             updateTrackingTable(filteredData);
         } else {
-            // If search input is empty, display the original tracking data
             updateTrackingTable(trackingData);
         }
     });
@@ -157,7 +155,6 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelector('.view-more-button').addEventListener('click', showMoreRows);
     document.querySelector('.view-less-button').addEventListener('click', showLessRows);
 
-    // Initially, display the full tracking list
     populateTrackingData(trackingData);
 
     // OpenWeatherMap integration

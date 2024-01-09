@@ -135,7 +135,7 @@ tr:hover {
 }
 
 .weather-info {
-    background-color: #0e81e4; 
+    background-color: #114981; 
     text-align: center;
     color: #fff; 
     padding: 15px;
@@ -159,13 +159,13 @@ tr:hover {
 }
 
 .temperature {
-    font-size: 24px;
+    font-size: 27px;
     font-weight: bold;
     color: #fff; 
 }
 
 .cloud-icon {
-    max-width: 25px; 
+    max-width: 70px; 
     margin-right: 5px; 
 }
 
@@ -197,7 +197,7 @@ tr:hover {
 }
 
 .additional-text h2 {
-    color: #0d44af; 
+    color: #114981; 
 }
 
 /* Add styles for the filter button, modal, and checkboxes */
@@ -219,7 +219,8 @@ tr:hover {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #fff;
+    background-color: #114981;
+    color: #fff;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
     z-index: 1;
@@ -261,12 +262,12 @@ tr:hover {
 }
 
 #backButton {
-    background-color: #ccc;
-    color: #333;
+    background-color: #fff;
+    color: black;
     margin-right: 10px;
 }
 
 #applyFilterButton {
-    background-color: #0d44af;
-    color: #fff;
+    background-color: #fff;
+    color: black;
 }
