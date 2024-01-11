@@ -1,0 +1,20 @@
+Vercel Deployment Process:
+
+Using CLI, run these commands: 
+
+Install Vercel
+  npm install -g vercel
+Login to Vercel CLI
+  vercel login
+Navigate to project inside QDMoveIt folder
+  e.g: /var/www/project-quadtech/app/QDMoveIt
+  Credentials:
+    Email: fnicolealcid@gmail.com
+Fetch and pull changes
+    sudo git pull
+    sudo git fetch
+    sudo git checkout <feature branch>
+Initialize Vercel
+    vercel
+
+This will then create a preview for the application. Once checked and there are no errors, click the Deploy to Production.
