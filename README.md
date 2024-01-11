@@ -26,4 +26,4 @@ UI/UX Developer : Simounne Cruz
 
 Tester/ Developer : Rose Kyla Fernandez
 
-*`Netlify URL`*: https://project-quantech.netlify.app
+_Link_: https://project-quantech.netlify.app
