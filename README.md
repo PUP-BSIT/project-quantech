@@ -4,6 +4,7 @@
 
 QDEXPRESS is a reliable and efficient delivery partner, dedicated to providing seamless logistics solutions tailored to your needs. QDExpress leverages cutting-edge technology to ensure a smooth and transparent delivery experience. 
 
+
 **Features**
 
 1. User can view delivery list.
@@ -16,6 +17,7 @@ QDEXPRESS is a reliable and efficient delivery partner, dedicated to providing s
 
 5. User can view the map containing the user's location.
 
+
 **Team Members**
 
 Project Manager/ Developer : Kaila Marie Alima
@@ -26,6 +28,9 @@ UI/UX Developer : Simounne Cruz
 
 Tester/ Developer : Rose Kyla Fernandez
 
+
 **Links**
+
 QDExpress: https://project-quantech.netlify.app
+
 QDMoveIt: https://qdmoveit.vercel.app/
