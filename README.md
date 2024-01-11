@@ -26,4 +26,6 @@ UI/UX Developer : Simounne Cruz
 
 Tester/ Developer : Rose Kyla Fernandez
 
-_Link_: https://project-quantech.netlify.app
+**Links**
+QDExpress: https://project-quantech.netlify.app
+QDMoveIt: https://qdmoveit.vercel.app/
