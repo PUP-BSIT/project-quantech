@@ -31,6 +31,6 @@ Tester/ Developer : Rose Kyla Fernandez
 
 **Links**
 
-QDExpress: https://project-quantech.netlify.app
+QDExpress: https://project-qdexpress.netlify.app
 
 QDMoveIt: https://qdmoveit.vercel.app/
