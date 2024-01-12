@@ -1,0 +1,200 @@
+html {
+	font-size:62.5%;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+ul, li {
+	list-style: none;
+}
+
+input {
+	border: none;
+}
+
+body {
+  width: 43rem;
+  margin: 0 auto;
+}
+
+.user-login {
+  width: 100%;
+  height: 67.2rem;
+  position: relative;
+  overflow: hidden;
+  background-color: #23231a;
+}
+
+.user-login .express-icon {
+  width: 28.1rem;
+  height: 18.5rem;
+  position: absolute;
+  left: 7.4rem;
+  top: 4.3rem;
+  object-fit: cover;
+  vertical-align: top;
+}
+
+.user-login .login-details {
+  width: 39.1rem;
+  height: 34.6rem;
+  position: absolute;
+  left: 1.9rem;
+  top: 20.9rem;
+  background-color: #eb9e84;
+  border-radius: 1rem;
+}
+
+.user-login .member-login {
+  width: 27.4rem;
+  height: 5.4rem;
+  position: absolute;
+  left: 7.6rem;
+  top: 22.8rem;
+  text-align: center;
+  font-size: 3.6rem;
+  font-weight: 800;
+  line-height: 1.5;
+  color: #114981;
+  font-family: Poppins, 'Source Sans Pro';
+  white-space: nowrap;
+}
+
+.input-box{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+}
+
+.user-login .input-username {
+  width: 31.1rem;
+  height: 5rem;
+  font-size: 16px;
+  font-family: Poppins;
+  position: absolute;
+  left: 5.4rem;
+  top: 30.4rem;
+  border: solid 0.2rem rgba(0, 0, 0, 0.3799999952);
+  box-sizing: border-box;
+  box-shadow: inset 0 0.6rem 1.2rem rgba(186, 185, 185, 0.200000003);
+  background-color: rgba(252, 234, 228, 0.5099999905);
+  border-radius: 2.5rem;
+  padding: 14px 16px;
+}
+
+.user-login .input-password {
+  width: calc(100% - 30px);
+  width: 31.1rem;
+  height: 5rem;
+  font-size: 16px;
+  font-family: Poppins;
+  position: absolute;
+  left: 5.4rem;
+  top: 37.9rem;
+  border: solid 0.2rem rgba(0, 0, 0, 0.3799999952);
+  box-sizing: border-box;
+  box-shadow: inset 0 0.6rem 1.2rem rgba(186, 185, 185, 0.200000003);
+  background-color: rgba(252, 234, 228, 0.5099999905);
+  border-radius: 2.5rem;
+  padding: 14px 16px;
+}
+
+.toggle-password {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    color: #999;
+    font-size: 16px;
+    position: absolute;
+    right: 90px;
+    top: 40.7rem;
+    transform: translateY(-50%);
+}
+
+.toggle-password:hover {
+    color: #333;
+}
+
+.login > :is(input, button) {
+    width: 13.5rem;
+    height: 4.3rem;
+    position: absolute;
+    left: 14.5rem;
+    top: 49rem;
+    padding: 0;
+    border-radius: 2.5rem;
+    font-family: Poppins;
+    color:azure;
+}
+
+.login > button {
+    cursor: pointer;
+    height: 5rem;
+    background-color: #114981;
+    border: 0;
+    letter-spacing: 2px;
+}
+
+.clear-button {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    color: #999;
+    font-weight: bold;
+    font-size: 16px;
+    position: absolute;
+    right: 90px;
+    top: 33rem;
+    transform: translateY(-50%);
+    display: none;
+}
+
+.clear-button:hover {
+    color: #333;
+}
+
+
+@media only screen and (max-width: 375px) {
+    .user-login {
+        padding: 20px;
+    }
+
+    .login-details {
+        padding: 7.5em 1.5em 4em 1.5em;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    body {
+        width: 100%; 
+    }
+
+    .user-login {
+        height: auto; 
+    }
+
+    .login-details {
+        width: 100%; 
+        left: 0; 
+        top: 0;
+        margin-top: 20px; 
+    }
+
+    .input-username,
+    .input-password,
+    .toggle-password,
+    .login > :is(input, button),
+    .clear-button {
+        width: 100%;
+        left: 0; 
+        margin-top: 20px; 
+    }
+
+    .clear-button {
+        top: 30rem; 
+    }
+}
