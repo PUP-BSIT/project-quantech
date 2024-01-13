@@ -1,0 +1,136 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Poppins, 'Source Sans Pro';
+}
+
+.app-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.header {
+    background-color: white;
+    text-align: left;
+    font-size: 20px;
+}
+
+.tracking-number {
+    background-color: #374B60;
+    text-align: center;
+    color: white;
+    padding: 10px;
+    font-size: 35px;
+    font-weight: 500;
+    margin-top: 20px;
+}
+
+.status-container {
+    background-color: #73b9ff;
+    padding: 20px;
+    margin-top: 20px;
+    display: flex;
+    align-items: center; /* Center the items vertically */
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background-color: #0D2D4C;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    left: 50px;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    position: relative;
+    width: 500px; /* Adjust the width as needed */
+    height: 45px;
+    margin-right: 70px;
+}
+
+.dropbtn::after {
+    content: "\25BC"; /* Unicode character for a down-pointing triangle */
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    margin-left: 50px;
+    margin-top: 15px;
+    border-radius: 10px;
+    background-color: #0D2D4C;
+    min-width: 200px; 
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    top: 100%; 
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+    color: #0D2D4C;
+}
+
+.show {
+    display: block;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+button#updateStatusBtn {
+    display: block;
+    margin: 20px auto;
+}
+
+.footer-navigation {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.navigation-button {
+    text-decoration: none;
+    color: #114982;
+    text-align: center;
+}
+
+.navigation-button.active {
+    color: #0056b3;
+}
+
+.save-button {
+    padding: 10px;
+    background-color: #0D2D4C;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    height: 45px;
+}
+
+.save-button:hover {
+    background-color: #0056b3;
+}
