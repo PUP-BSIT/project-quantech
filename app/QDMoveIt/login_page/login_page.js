@@ -59,7 +59,7 @@ function performLogin() {
             if (response.status === 'success') {
                 console.log('Login successful for user: ' + response.username);
                 localStorage.setItem('partner_id', response.partner_id);
-                window.location.href = '../delivery_list/'; 
+                window.location.href = '../delivery_list/';
             } else {
                 console.log("Error Login: " + response.message);
             }
