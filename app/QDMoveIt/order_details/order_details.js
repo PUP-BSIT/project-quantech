@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
             tiles.addTo(geomap);
 
             const marker = L.marker(latlng).addTo(geomap);
-            marker.bindPopup("<b>Your item is here!</b>").openPopup();
+            marker.bindPopup("<b>Your driver is here!</b>").openPopup();
         }
 
         if ("geolocation" in navigator) {
