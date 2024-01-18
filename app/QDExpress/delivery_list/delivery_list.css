@@ -43,17 +43,27 @@ tr:hover {
     background-color: #f5f5f5;
 }
 
+.view-details-container {
+    display: none;
+    position: relative;
+    margin-top: 10px;
+}
+
 .details-button {
     display: none;
-    position: absolute;
-    bottom: 10px;
-    right: 3px;
-    background-color: #0d44af; 
-    color: #fff; 
+    bottom: 0px;
+    right: 5px;
     padding: 5px 5px;
+    background-color: #0d44af;
+    color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    width: 100%; 
+}
+
+.delivery-item:hover .details-button {
+    display: block;
 }
 
 .status-cell:hover .details-button {
@@ -141,10 +151,10 @@ tr:hover {
     padding: 15px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 230px; 
-    height: 200px; 
-    overflow: hidden;
-    box-sizing: border-box; 
+    width: 230px; /* Set a fixed width for the weather box */
+    height: 200px; /* Set a fixed height for the weather box */
+    overflow: hidden; /* Add overflow for content longer than the box */
+    box-sizing: border-box; /* Include padding in width/height calculation */
 }
 
 .weather-info h2 {
@@ -200,6 +210,7 @@ tr:hover {
     color: #114981; 
 }
 
+/* Add styles for the filter button, modal, and checkboxes */
 .filter-button {
     padding: 20px;
     margin-right: 30px; 
@@ -208,15 +219,15 @@ tr:hover {
 }
 
 .filter-button img {
-    width: 20px; 
-    height: 20px;
+    width: 20px; /* Adjust the width as needed */
+    height: 20px; /* Adjust the height as needed */
 }
 
 .filter-modal {
     display: none;  
-    position: absolute;
-    top: 64%;
-    left: 55%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
     background-color: #114981;
     color: #fff;
@@ -247,7 +258,7 @@ tr:hover {
 .modal-footer {
     text-align: right;
     margin-top: 10px;
-    margin-bottom: ;
+    margin-bottom: 20px;
     text-align: center;
 }
 
@@ -261,9 +272,13 @@ tr:hover {
     margin: 0 5px;
 }
 
+#backButton {
+    background-color: #fff;
+    color: black;
+    margin-right: 10px;
+}
 
 #applyFilterButton {
     background-color: #fff;
     color: black;
-    margin-bottom: 20px;
 }
