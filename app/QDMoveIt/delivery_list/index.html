@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delivery Partner App</title>
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Poppins" />
+    <link rel="stylesheet" href="../includes/styles.css">
+    <link rel="stylesheet" href="delivery_list.css">  
+</head>
+<body>
+    <div class="app-container">
+        <div class="header">
+            <div class="additional-text">
+                <h1>QDMoveIt</h1>
+                <h2 id="greeting">Hey rider, <span id="userNamePlaceholder">User123</span></h2>
+                <p>How's it going today? Are you excited for your next adventure
+                    with QDExpress? Our fleet of top-of-the-line vehicles is waiting
+                    to take you anywhere you need to go.
+                </p>
+            </div>            
+            <div class="weather-widget-container">
+                <div class="weather-info">
+                    <h2>WEATHER TODAY</h2>
+                    <div id="weatherWidget"></div>
+                </div>
+            </div>
+        </div>
+        <div class="search-container">
+            <div class="search-input-container">
+                <input type="text" id="searchInput" class="search-input" placeholder="Search">
+                <img class="search-icon" src="../upload/search.png" alt="Search Icon - Magnifying Glass">
+                <div class="filter-button" id="filterButton">
+                    <img src="../upload/filter.png" alt="Filter Icon">
+                </div>
+                <div class="filter-modal" id="filterModal">
+                    <div class="modal-content">
+                        <div class="modal-header">Filters</div>
+                        <div class="modal-body">
+                            <label><input type="checkbox" class="filter-checkbox" value="pending"> Pending</label>
+                            <label><input type="checkbox" class="filter-checkbox" value="completed"> Completed</label>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="backButton">Back</button>
+                        <button id="applyFilterButton">Apply Filter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tracking-table">
+            <table id="trackingTable">
+                <thead>
+                    <tr class="header-row">
+                        <th>Order ID</th>
+                        <th>Destination Address</th>
+                        <th>Delivery Status</th>
+                        <th>Rider Name</th>
+                    </tr>
+                </thead>                    
+                <tbody id="trackingBody"></tbody>
+            </table>
+            <button class="view-more-button">View More</button>
+            <button class="view-less-button">View Less</button>
+        </div>
+        <div class="footer-navigation">
+            <a href="index.html" class="navigation-button active">
+                <img src="../upload/homepage.png" alt="Home Icon">
+                Home
+            </a>
+            <a href="profile/profile.html" class="navigation-button">
+                <img src="../upload/profile.png" alt="Tracking Icon">
+                Profile
+            </a>
+        </div>
+    </div>
+    <link rel="stylesheet" href="../includes/footer.css">
+    <script src="delivery_list.js"></script>
+</body>
+</html>
