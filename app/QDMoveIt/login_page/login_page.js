@@ -42,7 +42,7 @@ function performLogin() {
     var username = document.getElementById('user').value;
     var password = document.getElementById('pass').value;
     var apiUrl = 'https://cybertechlogistic.online/app/controller/' +
-    'controller_rider_login_api.php';
+        'controller_rider_login_api.php';
 
     var xhr = new XMLHttpRequest();
 
@@ -58,7 +58,9 @@ function performLogin() {
             console.log(response);
             if (response.status === 'success') {
                 console.log('Login successful for user: ' + response.username);
+                localStorage.setItem('username', response.username);
                 localStorage.setItem('partner_id', response.partner_id);
+
                 window.location.href = '../delivery_list/';
             } else {
                 console.log("Error Login: " + response.message);
@@ -70,5 +72,6 @@ function performLogin() {
 
     xhr.send(formData);
 }
+
 
 document.getElementById('loginButton').addEventListener('click', performLogin);
