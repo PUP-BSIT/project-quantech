@@ -14,8 +14,6 @@ document.addEventListener('DOMContentLoaded', function () {
             .then(data => {
                 if (data) {
                     const riderName = data.length > 0 ? data[0].rider_name : 'Unknown Rider';
-
-                    // Update profile elements
                     document.getElementById('fullname-display').textContent = `Welcome, ${riderName}!`;
                     document.getElementById('rider_name').textContent = riderName;
                     document.getElementById('vehicle').textContent = localStorage.getItem('vehicle');
