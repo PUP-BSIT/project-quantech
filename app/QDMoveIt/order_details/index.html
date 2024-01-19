@@ -7,12 +7,13 @@
     <title>ORDER DETAILS</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="order_details.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-    crossorigin=""/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4
+    /dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+        crossorigin=""/>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-     crossorigin=""></script>
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+        crossorigin=""></script>
 </head>
 
 <body>
@@ -27,8 +28,7 @@
         </header>
 
         <div class="container">
-            <div class="tracking-number">
-                <p>569854256345</p>
+            <div class="tracking-number" id="trackingNumber">
             </div>
 
             <div class="order-details">
@@ -36,27 +36,23 @@
                     <h2>RECEIVER DETAILS</h2>
                     <div class="detail-row">
                         <h3 class="detail-header">Name</h3>
-                        <p class="detail-info">John Doe</p>
+                        <p class="detail-info" id="receiverName"></p>
                     </div>
                     <div class="detail-row">
                         <h3 class="detail-header">Address</h3>
-                        <p class="detail-info">123 Main Street</p>
-                    </div>
-                    <div class="detail-row">
-                        <h3 class="detail-header">Number</h3>
-                        <p class="detail-info">+1234567890</p>
+                        <p class="detail-info" id="receiverAddress"></p>
                     </div>
                 </div>
-    
+
                 <div class="sender-details">
                     <h2>SENDER DETAILS</h2>
                     <div class="detail-row">
                         <h3 class="detail-header">Name</h3>
-                        <p class="detail-info">Kaila Marie Alima</p>
+                        <p class="detail-info" id="senderName"></p>
                     </div>
                     <div class="detail-row">
                         <h3 class="detail-header">Address</h3>
-                        <p class="detail-info">123 Main Street</p>
+                        <p class="detail-info" id="senderAddress"></p>
                     </div>
                 </div>
             </div>
@@ -71,8 +67,8 @@
                 <img src="../upload/homepage.png" alt="Home Icon">
                 Home
             </a>
-            <a href="../profile/profile.html" class="navigation-button">
-                <img src=".../upload/profile.png" alt="Profile Icon">
+            <a href="../profile_page/" class="navigation-button">
+                <img src="../upload/profile.png" alt="Profile Icon">
                 Profile
             </a>
         </div>
