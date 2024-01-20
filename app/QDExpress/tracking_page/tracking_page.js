@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const updateStatusDropdown = document.getElementById("updateStatusDropdown");
-    const dropdownContent = document.getElementById("dropdownContent");
+    const updateStatusDropdown = document.getElementById("update_status_dropdown");
+    const dropdownContent = document.getElementById("dropdown_content");
   
     // Toggle the visibility of the dropdown content
     updateStatusDropdown.addEventListener("click", function () {
@@ -22,17 +22,17 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   
     // Delivered option click event
-    document.getElementById("deliveredOption").addEventListener("click", function () {
+    document.getElementById("delivered_option").addEventListener("click", function () {
       handleOptionClick("Delivered");
     });
   
     // In Transit option click event
-    document.getElementById("inTransitOption").addEventListener("click", function () {
+    document.getElementById("in_transit_option").addEventListener("click", function () {
       handleOptionClick("In Transit");
     });
   
     // Sorting Center option click event
-    document.getElementById("sortingCenterOption").addEventListener("click", function () {
+    document.getElementById("sorting_center_option").addEventListener("click", function () {
       handleOptionClick("Sorting Center");
     });
   });
