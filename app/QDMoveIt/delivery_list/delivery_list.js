@@ -184,7 +184,7 @@ function performSearch() {
 }
 
 function redirectToOrderDetails(orderId) {
-    window.location.href = '../order_details/' + orderId;
+    window.location.href = '../order_details/?orderId=' + orderId;
 }
 
 // OpenWeatherMap integration
