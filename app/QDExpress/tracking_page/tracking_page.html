@@ -1,54 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#000000" />
-    <title>Tracking Page</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins%3A400%2C600%2C700%2C900"/>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A400%2C600%2C700%2C900"/>
     <link rel="stylesheet" href="tracking_page.css">
 </head>
-    <body>
-        <div class="app-container">
+<body>
+    <div class="app-container">
         <div class="tracking-page">
             <p class="qdpexpress">QDPExpress</p>
-        <div class="tracking-number">23451</div>
-        <div class="tracking">
-            <div class="tracking-box">
-                <div class="container">
-        
-                <button onclick="showForm()" class="update-btn">Update</button>
+            <div class="tracking-number" id="orderIdDisplay">23451</div>
+            <div class="tracking">
+                <div class="tracking-box">
+                    <div class="container">
+                        <div id="tracking-entries"></div>
+                        <button type = "button" class="update-btn" onclick="showForm()">Update</button>
+                        <form id="updateForm" class="form-popup" style="display: none;">
+                            <h1 id="formTitle">Tracking Details</h1>
+                            <select id="status" name="status" required>
+                                <option value="" disabled selected>Update Status</option>
+                                <option value="picked-up">Picked up from seller</option>
+                                <option value="in-transit">In transit</option>
+                                <option value="delivered">Delivered</option>
+                            </select>
+                            <label for="location">Checkpoint Location</label>
+                            <input type="text" id="location" name="location" placeholder="Enter checkpoint location" required>
 
-                <form id="updateForm" style="display: none;">
-                    <label for="status">Update Status:</label>
-                    <select id="status" name="status">
-                        <option value="picked-up">Picked up from seller</option>
-                        <option value="in-transit">In transit</option>
-                        <option value="delivered">Delivered</option>
-                    </select>
+                            <label for="description">Description</label>
+                            <textarea id="description" name="description" rows="4" placeholder="Enter description" required></textarea>
+                            <button type="button" onclick="goBack()" class="back">Back</button>
+                            <button type="button" onclick="saveStatus()" class="save">Save</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-                    <button type="button" onclick="goBack()" 
-                        class="back">Back</button>
-                    <button type="button" onclick="saveStatus()" 
-                        class="save">Save</button>
-                </form>
-        </div>
-        </div>
-        </div>
-        </div>
-        </div>
-        <div class="footer-navigation">
-            <a href="../delivery_list/" class="navigation-button active">
-                <img src="../upload/homepage.png" alt="Home Icon">
-                Home
-            </a>
-            <a href="../profile_page/" class="navigation-button">
-                <img src="../upload/profile.png" alt="Tracking Icon">
-                Profile
-            </a>
-        </div>
-        <link rel="stylesheet" href="../includes/footer.css">
-<script src="tracking_page.js"></script>
+    <div class="footer-navigation">
+        <a href="../index.html" class="navigation-button active">
+            <img src="../upload/homepage.png" alt="Home Icon">
+            Home
+        </a>
+        <a href="../profile_page/" class="navigation-button">
+            <img src="../upload/profile.png" alt="Profile Icon">
+            Profile
+        </a>
+    </div>
+</div>
+    <link rel="stylesheet" href="../includes/footer.css">
+    <script src="tracking_page.js"></script>
 </body>
 </html>
