@@ -141,7 +141,6 @@ select {
   font-family: Poppins, 'Source Sans Pro';
 }
 
-/* Overlay style */
 .overlay {
   display: none;
   position: fixed;
@@ -153,7 +152,6 @@ select {
   z-index: 1;
 }
 
-/* Form popup style */
 .form-popup {
   display: none;
   position: absolute;
@@ -192,14 +190,12 @@ select {
   margin: 5px;
 }
 
-/* Style for form elements */
 #updateForm {
   width: 100%;
   max-width: 400px;
   margin: 0 auto;
 }
 
-/* Style for input fields */
 #status,
 #location,
 #description {
@@ -210,7 +206,6 @@ select {
   font-family: Poppins, 'Source Sans Pro';
 }
 
-/* Updated style for tracking entry without box form */
 .tracking-entry {
   margin-top: 70px;
   padding: 10px;
@@ -219,27 +214,24 @@ select {
   background: linear-gradient(to right, #d7eaf3, #a9d8f3);
 }
 
-/* Light blue vertical pin-style line */
 .tracking-entry::before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
-  width: 4px; /* Width of the vertical line */
+  width: 4px; 
   height: 100%;
-  background-color: #114981; /* Color of the vertical line */
+  background-color: #114981; 
   border-radius: 2px;
 }
 
-/* Timestamp style */
 .timestamp {
   font-size: 14px;
   color: #707070;
   margin-bottom: 5px;
-  font-weight: bold; /* Beautiful text design */
+  font-weight: bold; 
 }
 
-/* Common style for status, location, and description */
 .location, .description {
   font-size: 16px;
   color: #181717;
@@ -249,7 +241,6 @@ select {
   font-size: 16px;
 }
 
-/* Additional styles for specific elements inside tracking entry */
 .tracking-entry .timestamp {
   color: #333;
 }
