@@ -1,136 +1,357 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
 body {
-    margin: 0;
-    padding: 0;
-    font-family: Poppins, 'Source Sans Pro';
+  width: 43rem;
+  margin: 0 auto;
+}
+
+.tracking-page {
+  box-sizing: border-box;
+  padding-top: 6.3rem;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
 }
 
 .app-container {
-    max-width: 800px;
-    margin: 0 auto;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    margin-top: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding-top: 0.3rem;
+  margin-top: 20px;
 }
 
-.header {
-    background-color: white;
-    text-align: left;
-    font-size: 20px;
+.qdpexpress {
+  margin: 0rem 0rem 1.7rem 4rem;
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 1.5;
+  color: #030303;
+  font-family: Poppins, "Source Sans Pro";
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .tracking-number {
-    background-color: #374B60;
-    text-align: center;
-    color: white;
-    padding: 10px;
-    font-size: 35px;
-    font-weight: 500;
-    margin-top: 20px;
+  margin-bottom: 1.4rem;
+  width: 100%;
+  height: 7.9rem;
+  text-align: center;
+  font-size: 3.2rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: #ffffff;
+  font-family: Poppins, "Source Sans Pro";
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #374b60;
+  border-radius: 2.5rem;
+  flex-shrink: 0;
 }
 
-.status-container {
-    background-color: #73b9ff;
-    padding: 20px;
-    margin-top: 20px;
-    display: flex;
-    align-items: center; /* Center the items vertically */
+.tracking {
+  margin: 0rem 1.1rem 0.8rem 1.2rem;
+  width: calc(100% - 2.3rem);
+  height: 52.8rem;
+  position: relative;
+  flex-shrink: 0;
 }
 
-.dropdown {
-    position: relative;
-    display: inline-block;
+.tracking-box {
+  width: 40.7rem;
+  height: 52rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+  box-shadow: 0 0.4rem 0.4rem rgba(0, 0, 0, 0.25);
+  background-color: #ddebf9;
 }
 
-.dropbtn {
-    background-color: #0D2D4C;
-    color: white;
-    padding: 10px;
-    font-size: 16px;
-    left: 50px;
-    border: none;
-    cursor: pointer;
-    border-radius: 10px;
-    position: relative;
-    width: 500px; /* Adjust the width as needed */
-    height: 45px;
-    margin-right: 70px;
+.container {
+  max-width: 600px;
+  margin: auto;
+  text-align: center;
+  padding-top: 2rem;
 }
 
-.dropbtn::after {
-    content: "\25BC"; /* Unicode character for a down-pointing triangle */
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: white;
+button {
+  font-size: 16px;
+  font-family: Poppins, "Source Sans Pro";
 }
 
-.dropdown-content {
-    display: none;
-    position: absolute;
-    margin-left: 50px;
-    margin-top: 15px;
-    border-radius: 10px;
-    background-color: #0D2D4C;
-    min-width: 200px; 
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-    top: 100%; 
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  font-size: 20px;
+  font-family: Poppins, "Source Sans Pro";
+  color: #114981;
 }
 
-.dropdown-content a {
-    color: white;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
+select {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 16px;
+  border: 1px solid #8b8b8b;
+  border-radius: 4px;
+  background-color: #114981;
+  color: #ffffff;
+  font-family: Poppins, "Source Sans Pro";
 }
 
-.dropdown-content a:hover {
-    background-color: #f1f1f1;
-    color: #0D2D4C;
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
 }
 
-.show {
-    display: block;
+.form-popup {
+  display: none;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 15px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  z-index: 2;
 }
 
-button:hover {
-    background-color: #0056b3;
+.back,
+.save {
+  padding: 10px;
+  margin: 5px;
+  position: relative;
+  width: 40%;
+  margin-top: 20px;
+  padding: 10px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-button#updateStatusBtn {
-    display: block;
-    margin: 20px auto;
+.back {
+  background-color: #6c7b8a;
+  padding: 10px;
+  margin: 5px;
 }
 
-.footer-navigation {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 20px;
+.save {
+  background-color: #114981;
+  padding: 10px;
+  margin: 5px;
 }
 
-.navigation-button {
-    text-decoration: none;
-    color: #114982;
-    text-align: center;
+#updateForm {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
 }
 
-.navigation-button.active {
-    color: #0056b3;
+#status,
+#location,
+#description {
+  width: 95%;
+  padding: 8px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  font-family: Poppins, "Source Sans Pro";
 }
 
-.save-button {
-    padding: 10px;
-    background-color: #0D2D4C;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    height: 45px;
+.timestamp {
+  font-size: 14px;
+  color: #707070;
+  margin-bottom: 5px;
+  font-weight: bold;
 }
 
-.save-button:hover {
-    background-color: #0056b3;
+.location,
+.description {
+  font-size: 16px;
+  color: #181717;
+}
+
+.status {
+  font-size: 16px;
+}
+
+.tracking-entry .timestamp {
+  color: #333;
+}
+
+.tracking-entry .status {
+  font-style: italic;
+  color: #cc2727;
+}
+
+.tracking-entry .location {
+  font-weight: bold;
+}
+
+.tracking-entry .description {
+  color: #666;
+}
+
+.tracking-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.tracking-action {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.tracking-entries {
+  display: flex;
+  gap: 15px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.tracking-entry-datetime {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 15px;
+  width: 200px;
+}
+
+.tracking-entry-datetime::after {
+  content: "";
+  background-color: black;
+  width: 3px;
+  height: 100%;
+  position: absolute;
+  border-radius: 100px;
+  right: 15px;
+  top: 0px;
+}
+
+.tracking-entry-datetime div {
+  text-align: center;
+}
+
+.tracking-entry {
+  /* display: flex; */
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  grid-auto-flow: column;
+  /* justify-content: start; */
+  width: 100%;
+}
+
+.tracking-entry:first-child {
+  grid-row: 1;
+}
+
+.tracking-entry:nth-child(2) {
+  grid-row: 12;
+}
+
+.tracking-entry-information {
+  color: gray;
+  font-size: 1.5rem;
+  padding: 15px;
+}
+
+.tracking-action {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+}
+
+.update-btn {
+  border-radius: 5px;
+  border: 0px;
+  box-shadow: 3px 3px 3px #888888;
+  background-color: #007bff;
+  color: white;
+  height: 45px;
+  width: 185px;
+}
+
+.update-btn:hover {
+  border-radius: 5px;
+  border: 0px;
+  box-shadow: 3px 3px 3px #888888;
+  background-color: #0158b5;
+  color: white;
+  cursor: pointer;
+}
+
+.save-btn {
+  border-radius: 5px;
+  border: 0px;
+  box-shadow: 3px 3px 3px #888888;
+  background-color: #007bff;
+  color: white;
+  height: 45px;
+  width: 120px;
+}
+
+.save-btn:hover {
+  background-color: #0158b5;
+  cursor: pointer;
+}
+
+.tracking-form {
+  display: none;
+  border: 1px solid black;
+  padding: 30px;
+  margin: 30px;
+}
+
+.form-action {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.back-btn {
+  border-radius: 5px;
+  border: 0px;
+  box-shadow: 3px 3px 3px #888888;
+  background-color: #6c757d;
+  color: white;
+  height: 45px;
+  width: 120px;
+}
+
+.back-btn:hover {
+  background-color: #4d5257;
+  cursor: pointer;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
