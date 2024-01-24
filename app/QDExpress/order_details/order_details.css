@@ -21,6 +21,14 @@ body {
     color:#114982;
 }
 
+@media only screen and (max-width: 600px) {
+    .app-container {
+        max-width: 100%;
+        padding: 10px;
+        box-shadow: none;
+}
+}
+
 .tracking-number {
     background-color: #374B60;
     text-align: center;
