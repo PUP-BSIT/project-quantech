@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 return response.json();
             })
             .then(deliveryList => {
-                const orderDetails = deliveryList.find(delivery => delivery.order_id == orderId);
+                const orderDetails = deliveryList.find(delivery => parseInt(delivery.order_id) === parseInt(orderId));
 
                 if (orderDetails) {
                     updateOrderDetailsUI(orderDetails);
@@ -26,19 +26,19 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function updateOrderDetailsUI(orderDetails) {
+
+        console.log("Updating UI with order details:", orderDetails);
+        
         const trackingNumberElement = document.getElementById('trackingNumber');
-        trackingNumberElement.textContent = orderDetails.order_id;
-
         const receiverNameElement = document.getElementById('receiverName');
-        receiverNameElement.textContent = orderDetails.receiver_name;
-
-        const receiverAddressElement = document.getElementById('receiverAddress');
-        receiverAddressElement.textContent = orderDetails.destination_address;
-
         const senderNameElement = document.getElementById('senderName');
-        senderNameElement.textContent = orderDetails.sender_name;
-
+        const receiverAddressElement = document.getElementById('receiverAddress');
         const senderAddressElement = document.getElementById('senderAddress');
+
+        trackingNumberElement.textContent = orderDetails.order_id;
+        receiverNameElement.textContent = orderDetails.receiver_name;
+        senderNameElement.textContent = orderDetails.source_name;
+        receiverAddressElement.textContent = orderDetails.destination_address;
         senderAddressElement.textContent = orderDetails.src_address;
 
         updateMap(orderDetails);
@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const updateStatusBtn = document.getElementById('updateStatusBtn');
     updateStatusBtn.addEventListener('click', function () {
-        window.location.href = '../tracking_page/tracking_page.html';
+        window.location.href = '../tracking_page/?orderId=' + orderId;
     });
 
 });

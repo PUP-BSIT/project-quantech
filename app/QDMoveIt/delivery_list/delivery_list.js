@@ -17,8 +17,8 @@ document.addEventListener('DOMContentLoaded', function () {
             })
             .then(data => {
                 if (data) {
+                    console.log('Data from API:', data);
                     riderName = data.length > 0 ? data[0].rider_name : 'Unknown Rider';
-
                     document.getElementById('userNamePlaceholder').textContent = riderName;
 
                     updateTrackingTable(data);
@@ -62,8 +62,9 @@ function updateTrackingTable(deliveryList) {
             var descriptionCell = row.insertCell(2);
             descriptionCell.textContent = delivery.status === 1 ? 'Pending' : 'Completed';
 
-            var riderNameCell = row.insertCell(3);
-            riderNameCell.textContent = delivery.rider_name;
+            var senderNameCell = row.insertCell(3);
+            senderNameCell.textContent = delivery.source_name; // assuming 'source_name' is the key from your API response
+
 
             var viewDetailsButton = document.createElement('button');
             viewDetailsButton.textContent = 'View Details';
@@ -74,7 +75,7 @@ function updateTrackingTable(deliveryList) {
 
             viewDetailsButton.style.width = '100%';
 
-            riderNameCell.appendChild(viewDetailsButton);
+            senderNameCell.appendChild(viewDetailsButton);
 
             row.addEventListener('mouseover', function () {
                 viewDetailsButton.style.display = 'block';
@@ -99,7 +100,7 @@ function showFilterModal() {
     filterModal.style.display = 'block';
 
     var filterButton = document.getElementById('filterButton');
-    filterButton.style.display = 'none';
+    filterButton.style.display = 'block';
 }
 
 function applyFilter() {
@@ -162,7 +163,6 @@ function performSearch() {
         })
         .then(data => {
             if (data) {
-                // Filter the delivery list based on the search query
                 var filteredList = data.filter(delivery => {
                     var orderIdString = String(delivery.order_id);
 
@@ -186,6 +186,7 @@ function performSearch() {
 function redirectToOrderDetails(orderId) {
     window.location.href = '../order_details/?orderId=' + orderId;
 }
+
 
 // OpenWeatherMap integration
 const weatherWidgetContainer = document.getElementById('weatherWidget');
@@ -211,4 +212,15 @@ function displayWeather(weatherData) {
                          <p class="description">${description}</p>`;
 
     weatherWidgetContainer.innerHTML = weatherHtml;
+}
+
+var backButton = document.getElementById('backButton');
+backButton.addEventListener('click', goBack);
+
+function goBack() {
+    var filterModal = document.getElementById('filterModal');
+    filterModal.style.display = 'none';
+
+    var filterButton = document.getElementById('filterButton');
+    filterButton.style.display = 'block';
 }
