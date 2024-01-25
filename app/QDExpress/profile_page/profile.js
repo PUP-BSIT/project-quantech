@@ -16,7 +16,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     const riderName = data.length > 0 ? data[0].rider_name : 'Unknown Rider';
                     document.getElementById('fullname-display').textContent = `Welcome, ${riderName}!`;
                     document.getElementById('rider_name').textContent = riderName;
-                    document.getElementById('vehicle').textContent = localStorage.getItem('vehicle');
                 } else {
                     console.error('Failed to fetch rider details:', data);
                 }
@@ -27,12 +26,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const username = localStorage.getItem('username');
         document.getElementById('username').textContent = username;
-        document.getElementById('partner_id').textContent = partnerId;
 
         const logoutButton = document.getElementById('logout-btn');
         logoutButton.addEventListener('click', function () {
-            // Redirect to the login page
-            window.location.href = '../login_page/';
+            window.location.href = '../';
         });
     } else {
         console.error('partner_id not available');

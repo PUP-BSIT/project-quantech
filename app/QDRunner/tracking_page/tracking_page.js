@@ -190,9 +190,9 @@ document.addEventListener("DOMContentLoaded", function () {
   //     showForm();
   //   });
 
-    backBtn.addEventListener("click", function () {
-      toggleForm();
-    });
+  backBtn.addEventListener("click", function () {
+    toggleForm();
+  });
 
   //   saveBtn.addEventListener("click", function () {
   //     saveStatus();
@@ -245,21 +245,21 @@ document.addEventListener("DOMContentLoaded", function () {
           const trackingDateTime = document.createElement("div");
           trackingDateTime.classList.add("tracking-entry-datetime");
           const trackingTimeDiv = document.createElement("div");
-          const trackingTime = document.createElement("h1");
+          const trackingTime = document.createElement("div");
           trackingTime.innerHTML = datetime.toLocaleString("en-US", {
             hour: "numeric",
             minute: "numeric",
             hour12: true,
           });
           const trackingDateDiv = document.createElement("div");
-          const trackingDate = document.createElement("div");
+          const trackingDate = document.createElement("h1");
           trackingDate.innerHTML = datetime.toLocaleString("en-US", {
             month: "short",
             day: "2-digit",
           });
-          trackingTimeDiv.append(trackingTime);
           trackingDateDiv.append(trackingDate);
-          trackingDateTime.append(trackingTimeDiv, trackingDateDiv);
+          trackingTimeDiv.append(trackingTime);
+          trackingDateTime.append(trackingDateDiv, trackingTimeDiv);
 
           const trackingInformationDiv = document.createElement("div");
           trackingInformationDiv.classList.add("tracking-entry-information");
@@ -277,7 +277,7 @@ document.addEventListener("DOMContentLoaded", function () {
       })
       .catch((err) => console.log(err));
   }
-  console.log(new Date())
+  console.log(new Date());
   const updateButton = document.getElementById("updateButton");
   updateButton.addEventListener("click", () => {
     toggleForm();
@@ -289,19 +289,17 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   function updateStatus() {
-    event.preventDefault(); 
     const referenceNumber = orderId;
     const timestamp = new Date().toLocaleString();
-    const status = document.getElementById("status").value;
     const location = document.getElementById("location").value;
-    const description = document.getElementById("description").value;
-
+    const description = document.getElementById("description").value.trim();
+    alert(description);
+    const status = description === "Delivered" ? 2 : 1;
+    alert(status);
     if (location.length === 0 || description.length === 0) {
       return alert("Please fill up the field");
     }
-
     const formData = new FormData();
-    console.log(new Date())
     formData.append("delivery_reference_number", referenceNumber);
     formData.append("timestamp", timestamp);
     formData.append("checkpoint_location", location);

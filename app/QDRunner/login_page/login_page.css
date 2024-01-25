@@ -168,6 +168,67 @@ body {
     }
 }
 
+.modal {
+    display: none;
+    position: fixed;
+    margin-left: 600px;
+    z-index: 1;
+    left: 0;
+    top: 200px;
+    width: 30%;
+    height: 100%;
+    overflow: auto;
+    background-color: transparent;
+}
+
+.modal-content {
+    background-color: #114981;
+    margin: 25% auto;
+    margin-bottom: 5px;
+    padding: 30px;
+    border: 1px solid black;
+    width: 60%;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(33, 29, 29, 0.2);
+    font-size: 18px;
+    color: white;
+}
+
+.modal-message {
+    font-size: 30px;
+    color: #114981;
+}
+
+.close {
+    color: #114981;
+    float: right;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+.modal button {
+    width: 13.5rem;
+    height: 4.3rem;
+    padding: 0;
+    border-radius: 2.5rem;
+    font-family: 'Poppins', 'Source Sans Pro';
+    color: azure;
+    cursor: pointer;
+    background-color: #114981;
+    border: 0;
+    letter-spacing: 2px;
+    margin-top: 10px;
+}
+
+.modal button:hover {
+    background-color: #23231a;
+}
+
+
+
 @media only screen and (max-width: 768px) {
     body {
         width: 100%; 

@@ -38,6 +38,18 @@ function togglePasswordVisibility() {
     }
 }
 
+function openModal(message) {
+    var modal = document.getElementById('myModal');
+    var modalMessage = document.getElementById('modalMessage');
+    modalMessage.textContent = message;
+    modal.style.display = 'block';
+}
+
+function closeModal() {
+    var modal = document.getElementById('myModal');
+    modal.style.display = 'none';
+}
+
 function performLogin() {
     var username = document.getElementById('user').value;
     var password = document.getElementById('pass').value;
@@ -64,6 +76,7 @@ function performLogin() {
                 window.location.href = 'delivery_list/';
             } else {
                 console.log("Error Login: " + response.message);
+                openModal('Invalid credentials. Please try again.');
             }
         } else {
             console.log("Error Login");
@@ -72,6 +85,7 @@ function performLogin() {
 
     xhr.send(formData);
 }
+
 
 
 document.getElementById('loginButton').addEventListener('click', performLogin);

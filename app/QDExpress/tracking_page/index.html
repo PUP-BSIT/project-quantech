@@ -17,8 +17,13 @@
   </head>
   <body>
     <div class="app-container">
+      <header class="header-1">
+        <h1> QDExpress</h1>
+      </header>
       <div class="tracking-page">
-        <p class="qdpexpress">QDPExpress</p>
+        <header class="header">
+            <h1>TRACK ORDER</h1>
+        </header> 
         <div class="tracking-number" id="orderIdDisplay">23451</div>
         <div class="tracking-container">
           <div class="tracking-action">
@@ -27,10 +32,20 @@
           <div class="tracking-form" id="trackingForm">
             <form>
               <h1 id="formTitle">Tracking Details</h1>
-              <select id="status" name="status" required>
-                <option value="1">Pending</option>
-                <option value="2">Completed</option>
-              </select>
+              <label for="description">Description</label>
+              <!-- <select id="description" name="description" required>
+                <option value="Picked up from seller">Picked up from seller</option>
+                <option value="In transit">In transit</option>
+                <option value="Delivered">Delivered</option>
+              </select> -->
+              <textarea
+                id="description"
+                name="description"
+                rows="4"
+                placeholder="Enter description"
+                required
+              ></textarea>
+
               <label for="location">Checkpoint Location</label>
               <input
                 type="text"
@@ -40,19 +55,12 @@
                 required
               />
 
-              <label for="description">Description</label>
-              <textarea
-                id="description"
-                name="description"
-                rows="4"
-                placeholder="Enter description"
-                required
-              ></textarea>
+              
               <div class="form-action">
                 <button type="button" class="back-btn">
                   Back
                 </button>
-                <button class="save-btn" id="saveButton">Save</button>
+                <button type="button" class="save-btn" id="saveButton">Save</button>
               </div>
             </form>
           </div>
@@ -63,7 +71,7 @@
       </div>
 
       <div class="footer-navigation">
-        <a href="../index.html" class="navigation-button active">
+        <a href="../delivery_list/" class="navigation-button active">
           <img src="../upload/homepage.png" alt="Home Icon" />
           Home
         </a>
