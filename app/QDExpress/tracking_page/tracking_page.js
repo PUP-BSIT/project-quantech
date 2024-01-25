@@ -289,6 +289,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   function updateStatus() {
+    event.preventDefault(); 
     const referenceNumber = orderId;
     const timestamp = new Date().toLocaleString();
     const status = document.getElementById("status").value;
@@ -323,7 +324,7 @@ document.addEventListener("DOMContentLoaded", function () {
         fetchDeliveryHistory(referenceNumber);
         document.getElementById("location").value = "";
         document.getElementById("description").value = "";
-        toggleForm()
+        toggleForm();
       })
       .catch((error) => {
         console.log(error);
