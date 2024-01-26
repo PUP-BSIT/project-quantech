@@ -18,7 +18,7 @@
   <body>
     <div class="app-container">
       <header class="header-1">
-        <h1> QDMoveIt</h1>
+        <h1> QDExpress</h1>
       </header>
       <div class="tracking-page">
         <header class="header">
@@ -32,22 +32,19 @@
           <div class="tracking-form" id="trackingForm">
             <form>
               <h1 id="formTitle">Tracking Details</h1>
-              <select id="description" name="description" required>
-                <option value="" disabled selected hidden>Enter Description</option>
-                <option value="preparing-to-ship">Seller is preparing to ship your parcel</option>
-                <option value="picked-up">Parcel has been picked up</option>
-                <option value="arrived-at-sorting-center">Parcel has arrived at sorting center</option>
-                <option value="departed-from-sorting-center">Parcel has departed from sorting center</option>
-                <option value="out-for-delivery">Parcel is out for delivery</option>
-                <option value="delivered">Parcel has been delivered</option>
-              </select>              
-              <!-- <textarea
+              <label for="description">Description</label>
+              <!-- <select id="description" name="description" required>
+                <option value="Picked up from seller">Picked up from seller</option>
+                <option value="In transit">In transit</option>
+                <option value="Delivered">Delivered</option>
+              </select> -->
+              <textarea
                 id="description"
                 name="description"
                 rows="4"
                 placeholder="Enter description"
                 required
-              ></textarea> -->
+              ></textarea>
 
               <label for="location">Checkpoint Location</label>
               <input

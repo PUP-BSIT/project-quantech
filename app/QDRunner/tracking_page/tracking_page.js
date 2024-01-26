@@ -218,6 +218,29 @@ document.addEventListener("DOMContentLoaded", function () {
     return entryElement;
   }
 
+  function fetchDeliveryDetails(orderId) {
+    let partnerId = localStorage.getItem('partner_id');
+    let apiUrl = 'https://cybertechlogistic.online/app/controller/get-delivery-history-api.php?order_id=' + orderId;
+
+    fetch(apiUrl)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(deliveryDetails => {
+            if (deliveryDetails.checkpoint_location) {
+                updateOrderDetailsUI(deliveryDetails);
+            } else {
+                console.error('No valid checkpoint_location found in delivery details.');
+                // Handle this case as needed
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching delivery details:', error);
+        });
+}
   function fetchDeliveryHistory(orderId) {
     const entriesElement = document.getElementById("trackingEntries");
     entriesElement.innerHTML = "";
@@ -293,18 +316,36 @@ document.addEventListener("DOMContentLoaded", function () {
     const timestamp = new Date().toLocaleString();
     const location = document.getElementById("location").value;
     const description = document.getElementById("description").value.trim();
-    alert(description);
-    const status = description === "Delivered" ? 2 : 1;
-    alert(status);
+  
+    let status;
+    if (description === "preparing-to-ship") {
+      status = 0; // Seller is preparing to ship your parcel
+    } else if (description === "picked-up") {
+      status = 2; // Parcel has been picked up
+    } else if (description === "arrived-at-sorting-center") {
+      status = 1; // Parcel has arrived at sorting center
+    } else if (description === "departed-from-sorting-center") {
+      status = 1; // Parcel has departed from sorting center
+    } else if (description === "out-for-delivery") {
+      status = 1; // Parcel is out for delivery
+    } else if (description === "delivered") {
+      status = 3; // Parcel has been delivered
+    } else {
+      status = -1; // Unknown Status
+    }
+  
     if (location.length === 0 || description.length === 0) {
       return alert("Please fill up the field");
     }
+  
     const formData = new FormData();
     formData.append("delivery_reference_number", referenceNumber);
     formData.append("timestamp", timestamp);
     formData.append("checkpoint_location", location);
     formData.append("description", description);
     formData.append("delivery_status", status);
+  
+  
     fetch(
       "https://cybertechlogistic.online/app/controller/update-delivery-api.php",
       {
@@ -328,6 +369,7 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log(error);
       });
   }
+  
 
   function toggleForm() {
     const trackingFormDiv = document.getElementById("trackingForm");
