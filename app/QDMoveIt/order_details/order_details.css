@@ -4,7 +4,8 @@
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    margin-top: 20px;
+    margin-top: 20px;   
+    
 }
 
 body {
@@ -32,7 +33,9 @@ body {
 
 .order-details {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
 }
 
 .receiver-details h2,
@@ -41,17 +44,27 @@ body {
     color:#0D2D4C;
 }
 
+@media only screen and (max-width: 600px) {
+    .receiver-details,
+    .sender-details {
+        width: 100%;    
+        margin-bottom: 20px;
+        box-sizing: border-box;
+    }
+}
+
 .receiver-details {
     background-color: #DDEBF9;
-    padding: 20px;
-    width: 48%;
+    padding: 10px;
+    width: calc(47% - 2px);
 }
 
 .sender-details {
     background-color: #73b9ff;
-    padding: 20px;
-    width: 48%;
+    padding: 10px;
+    width: calc(47% - 2px);
 }
+
 
 
 button {
@@ -82,7 +95,7 @@ button#updateStatusBtn {
 }
 
 .detail-header {
-    flex: 0 0 30%; 
+    flex: 0 0 60%; 
     font-size: 20px;
     font-weight: 600;
     color:#0D2D4C;
@@ -90,6 +103,6 @@ button#updateStatusBtn {
 }
 
 .detail-info {
-    flex: 0 0 80%; 
-    margin: 0;
+    flex: 0 0 20%; 
+    margin: 5px;
 }

@@ -1,4 +1,3 @@
-
 let partnerId; 
 let riderName; 
 
@@ -77,7 +76,7 @@ function updateTrackingTable(deliveryList) {
             locationCell.textContent = delivery.destination_address;
 
             var descriptionCell = row.insertCell(2);
-            descriptionCell.textContent = delivery.status === 1 ? 'Pending' : 'Completed';
+            descriptionCell.textContent = getStatusDescription(delivery.status);
 
             var senderNameCell = row.insertCell(3);
             senderNameCell.textContent = delivery.source_name; // assuming 'source_name' is the key from your API response
@@ -109,6 +108,21 @@ function updateTrackingTable(deliveryList) {
         emptyCell.colSpan = 5; 
 
         emptyCell.textContent = 'No deliveries available.';
+    }
+}
+
+function getStatusDescription(status) {
+    switch (status) {
+        case 0:
+            return 'Pending';
+        case 1:
+            return 'In Transit';
+        case 2:
+            return 'Shipped Out';
+        case 3:
+            return 'Delivered';
+        default:
+            return 'Unknown Status';
     }
 }
 
