@@ -125,7 +125,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const statusTexts = {
       "picked-up": "Picked up from seller",
       "in-transit": "In transit",
-      delivered: "Delivered",
+      "shipped-out": "Shipped Out",
+      "delivered": "Delivered",
     };
 
     const updateStatus = statusTexts[updateStatusValue] || "";
@@ -219,28 +220,27 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function fetchDeliveryDetails(orderId) {
-    let partnerId = localStorage.getItem('partner_id');
-    let apiUrl = 'https://cybertechlogistic.online/app/controller/get-delivery-history-api.php?order_id=' + orderId;
+        let partnerId = localStorage.getItem('partner_id');
+        let apiUrl = 'https://cybertechlogistic.online/app/controller/get-delivery-history-api.php?order_id=' + orderId;
 
-    fetch(apiUrl)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
-        .then(deliveryDetails => {
-            if (deliveryDetails.checkpoint_location) {
-                updateOrderDetailsUI(deliveryDetails);
-            } else {
-                console.error('No valid checkpoint_location found in delivery details.');
-                // Handle this case as needed
-            }
-        })
-        .catch(error => {
-            console.error('Error fetching delivery details:', error);
-        });
-}
+        fetch(apiUrl)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(deliveryDetails => {
+                if (deliveryDetails.checkpoint_location) {
+                    updateOrderDetailsUI(deliveryDetails);
+                } else {
+                    console.error('No valid checkpoint_location found in delivery details.');
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching delivery details:', error);
+            });
+    }
   function fetchDeliveryHistory(orderId) {
     const entriesElement = document.getElementById("trackingEntries");
     entriesElement.innerHTML = "";
@@ -315,23 +315,25 @@ document.addEventListener("DOMContentLoaded", function () {
     const referenceNumber = orderId;
     const timestamp = new Date().toLocaleString();
     const location = document.getElementById("location").value;
-    const description = document.getElementById("description").value.trim();
-  
+    const descriptionSelect = document.getElementById("description");
+    const description = descriptionSelect.value.trim();
+    const selectedOptionText = descriptionSelect.options[descriptionSelect.selectedIndex].text;
+
     let status;
     if (description === "preparing-to-ship") {
-      status = 0; // Seller is preparing to ship your parcel
+      status = 0; 
     } else if (description === "picked-up") {
-      status = 2; // Parcel has been picked up
+      status = 2; 
     } else if (description === "arrived-at-sorting-center") {
-      status = 1; // Parcel has arrived at sorting center
+      status = 1; 
     } else if (description === "departed-from-sorting-center") {
-      status = 1; // Parcel has departed from sorting center
+      status = 1; 
     } else if (description === "out-for-delivery") {
-      status = 1; // Parcel is out for delivery
+      status = 1; 
     } else if (description === "delivered") {
-      status = 3; // Parcel has been delivered
+      status = 3; 
     } else {
-      status = -1; // Unknown Status
+      status = -1; 
     }
   
     if (location.length === 0 || description.length === 0) {
@@ -342,7 +344,7 @@ document.addEventListener("DOMContentLoaded", function () {
     formData.append("delivery_reference_number", referenceNumber);
     formData.append("timestamp", timestamp);
     formData.append("checkpoint_location", location);
-    formData.append("description", description);
+    formData.append("description", selectedOptionText);
     formData.append("delivery_status", status);
   
   
