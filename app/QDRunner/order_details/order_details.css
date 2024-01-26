@@ -66,6 +66,7 @@ body {
 }
 
 
+
 button {
     padding: 10px 20px;
     background-color: #114981;
@@ -95,14 +96,13 @@ button#updateStatusBtn {
 
 .detail-header {
     flex: 0 0 60%; 
-    font-size: 15px;
+    font-size: 20px;
     font-weight: 600;
     color:#0D2D4C;
     font-family: Poppins, 'Source Sans Pro';
 }
 
 .detail-info {
-    flex: 0 0 10%; 
+    flex: 0 0 20%; 
     margin: 5px;
-    font-size: 12px;
 }

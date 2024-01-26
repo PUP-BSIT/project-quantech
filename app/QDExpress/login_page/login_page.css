@@ -158,17 +158,6 @@ body {
     color: #333;
 }
 
-
-@media only screen and (max-width: 375px) {
-    .user-login {
-        padding: 20px;
-    }
-
-    .login-details {
-        padding: 7.5em 1.5em 4em 1.5em;
-    }
-}
-
 .modal {
     display: none;
     position: fixed;
@@ -177,7 +166,7 @@ body {
     z-index: 1;
     left: 0;
     right: 0;
-    top: 50%;  /* Center vertically at 50% */
+    top: 50%; 
     transform: translateY(-23%);
     width: 30%;
     height: 100%;
@@ -212,7 +201,6 @@ body {
     cursor: pointer;
 }
 
-
 .modal button {
     width: 13.5rem;
     height: 4.3rem;
@@ -229,37 +217,4 @@ body {
 
 .modal button:hover {
     background-color: #23231a;
-}
-
-
-
-@media only screen and (max-width: 768px) {
-    body {
-        width: 100%; 
-    }
-
-    .user-login {
-        height: auto; 
-    }
-
-    .login-details {
-        width: 100%; 
-        left: 0; 
-        top: 0;
-        margin-top: 20px; 
-    }
-
-    .input-username,
-    .input-password,
-    .toggle-password,
-    .login > :is(input, button),
-    .clear-button {
-        width: 100%;
-        left: 0; 
-        margin-top: 20px; 
-    }
-
-    .clear-button {
-        top: 30rem; 
-    }
 }
