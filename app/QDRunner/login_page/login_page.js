@@ -80,7 +80,7 @@ function performLogin() {
                 localStorage.setItem('username', response.username);
                 localStorage.setItem('partner_id', response.partner_id);
 
-                window.location.href = 'delivery_list/';
+                window.location.href = '../delivery_list/';
             } else {
                 console.log("Error Login: " + response.message);
                 openModal('Invalid credentials. Please try again.');
