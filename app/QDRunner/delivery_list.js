@@ -1,4 +1,3 @@
-
 let partnerId; 
 let riderName; 
 
