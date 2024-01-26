@@ -38,8 +38,20 @@ function togglePasswordVisibility() {
     }
 }
 
+function openModal(message) {
+    var modal = document.getElementById('myModal');
+    var modalMessage = document.getElementById('modalMessage');
+    modalMessage.textContent = message;
+    modal.style.display = 'block';
+}
+
+function closeModal() {
+    var modal = document.getElementById('myModal');
+    modal.style.display = 'none';
+}
+
 function performLogin() {
-    var username = document.getElementById('user').value;
+    var userInput = document.getElementById('user').value;
     var password = document.getElementById('pass').value;
     var apiUrl = 'https://cybertechlogistic.online/app/controller/' +
         'controller_rider_login_api.php';
@@ -47,7 +59,13 @@ function performLogin() {
     var xhr = new XMLHttpRequest();
 
     var formData = new FormData();
-    formData.append('username', username);
+
+    if (userInput.includes('@')) {
+        formData.append('email', userInput);
+    } else {
+        formData.append('username', userInput);
+    }
+
     formData.append('password', password);
 
     xhr.open('POST', apiUrl, true);
@@ -58,12 +76,14 @@ function performLogin() {
             console.log(response);
             if (response.status === 'success') {
                 console.log('Login successful for user: ' + response.username);
+                console.log('User email: ' + response.email);
                 localStorage.setItem('username', response.username);
                 localStorage.setItem('partner_id', response.partner_id);
 
                 window.location.href = 'delivery_list/';
             } else {
                 console.log("Error Login: " + response.message);
+                openModal('Invalid credentials. Please try again.');
             }
         } else {
             console.log("Error Login");
@@ -72,6 +92,7 @@ function performLogin() {
 
     xhr.send(formData);
 }
+
 
 
 document.getElementById('loginButton').addEventListener('click', performLogin);

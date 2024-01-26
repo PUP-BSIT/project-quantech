@@ -1,3 +1,4 @@
+
 * {
   margin: 0;
   padding: 0;
@@ -11,6 +12,22 @@ html {
 body {
   width: 43rem;
   margin: 0 auto;
+}
+
+.header {
+  background-color: white;
+  text-align: center;
+  font-size: 15px;
+  color:#114982;
+}
+
+.header-1 {
+  background-color: white;
+  margin-top: 20px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  font-size: 10px;
+  color:black;
 }
 
 .tracking-page {
@@ -59,7 +76,7 @@ body {
   align-items: center;
   justify-content: center;
   background-color: #374b60;
-  border-radius: 2.5rem;
+  border-radius: 0;
   flex-shrink: 0;
 }
 
@@ -172,6 +189,7 @@ select {
 #status,
 #location,
 #description {
+  margin-top: 10px;
   width: 95%;
   padding: 8px;
   margin-bottom: 10px;
@@ -181,19 +199,29 @@ select {
 
 .timestamp {
   font-size: 14px;
-  color: #707070;
-  margin-bottom: 5px;
-  font-weight: bold;
+  color: #555;
+  display: flex;
+  align-items: center;
 }
 
 .location,
 .description {
   font-size: 16px;
-  color: #181717;
+  color: #333;
 }
 
 .status {
-  font-size: 16px;
+  font-size: 18px;
+  color: #007bff;
+}
+
+.timestamp,
+.status,
+.location,
+.description {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .tracking-entry .timestamp {
@@ -225,7 +253,9 @@ select {
 }
 
 .tracking-entries {
-  display: flex;
+  margin-left: 20px;
+  margin-top: 20px;
+  display: fixed;
   gap: 15px;
   flex-direction: column;
   justify-content: center;
@@ -233,37 +263,68 @@ select {
   width: 100%;
 }
 
+.line-between {
+  border-left: 2px solid #114981; 
+  height: 100%;
+  position: absolute;
+  left: 30px; 
+}
+
 .tracking-entry-datetime {
-  position: relative;
-  display: flex;
+  display: fixed;
+  margin-left: 20px;
+  padding-right: 50px;
   flex-direction: column;
-  justify-content: center;
-  padding: 15px;
-  width: 200px;
+  position: relative;
+  align-items: center;
+  margin-right: 15px;
+  width: 10px; 
+}
+
+.tracking-entry-datetime::before {
+  content: "";
+  width: 3px;
+  height: 100%;
+  border-radius: 100px;
+  background-color: #114981; 
 }
 
 .tracking-entry-datetime::after {
   content: "";
-  background-color: black;
+  width: 2px;
+  height: 100%;
+  background-color: #114981;
+  position: absolute;
+  left: calc(50% + 35px); 
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+/* .tracking-entry-datetime::after {
+  content: "";
   width: 3px;
   height: 100%;
   position: absolute;
   border-radius: 100px;
   right: 15px;
   top: 0px;
-}
+  background-color: #114981; 
+} */
 
 .tracking-entry-datetime div {
-  text-align: center;
+  position: relative;
+}
+
+
+.tracking-entry-datetime div:last-child {
+  margin-right: 0;
 }
 
 .tracking-entry {
-  /* display: flex; */
-  display: grid;
-  grid-template-columns: 2fr 3fr;
-  grid-auto-flow: column;
-  /* justify-content: start; */
-  width: 100%;
+  display: flex;
+  align-items: center; 
+  margin-bottom: 15px;
 }
 
 .tracking-entry:first-child {
@@ -306,6 +367,7 @@ select {
 }
 
 .save-btn {
+  margin-top: 10px;
   border-radius: 5px;
   border: 0px;
   box-shadow: 3px 3px 3px #888888;
@@ -334,6 +396,7 @@ select {
 }
 
 .back-btn {
+  margin-top: 10px;
   border-radius: 5px;
   border: 0px;
   box-shadow: 3px 3px 3px #888888;
@@ -355,3 +418,6 @@ form {
   align-items: center;
   width: 100%;
 }
+
+
+		

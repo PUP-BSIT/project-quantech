@@ -13,15 +13,16 @@
 </head>
 <body>
     <div class="user-login">
-        <img class="express-icon" src="../assets/express-icon.png"/>
+        <img class="express-icon" src="upload/qdexpress-logo.png"/>
         <div class="login-details">
+            <p id="errorMessage"></p>
         </div>
 
         <p class="member-login">MEMBER LOGIN</p>
 
         <div class="input-box">
             <input type="text" id="user" class="input-username"
-                placeholder="Username" autofocus="1" oninput="toggleClearButton()" required>
+                placeholder="Username or Email" autofocus="1" oninput="toggleClearButton()" required>
             <button class="clear-button" onclick="clearInput()">X</button>
         </div>
 
@@ -36,6 +37,14 @@
         <div class="login">
             <button id="loginButton" onclick="performLogin()">Login</button>
         </div>
+
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <p id="modalMessage"></p>
+                <button onclick="closeModal()">Okay</button>
+            </div>
+        </div>        
     </div>
     <script src="login_page/login_page.js"></script>
 </body>

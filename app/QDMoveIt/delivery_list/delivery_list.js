@@ -1,3 +1,4 @@
+
 let partnerId; 
 let riderName; 
 
@@ -39,9 +40,25 @@ document.addEventListener('DOMContentLoaded', function () {
         var searchInput = document.getElementById('searchInput');
         searchInput.addEventListener('input', performSearch);
 
+        var viewMoreButton = document.querySelector('.view-more-button');
+        var viewLessButton = document.querySelector('.view-less-button');
+
+        viewMoreButton.addEventListener('click', function () {
+            showAllItems();
+            viewMoreButton.style.display = 'none';
+            viewLessButton.style.display = 'block';
+        });
+
+        viewLessButton.addEventListener('click', function () {
+            showOnlyThreeItems();
+            viewLessButton.style.display = 'none';
+            viewMoreButton.style.display = 'block';
+    });
+
     } else {
         console.error('partner_id not available');
     }
+    
 });
 
 function updateTrackingTable(deliveryList) {
@@ -151,6 +168,9 @@ function performSearch() {
     var searchInput = document.getElementById('searchInput');
     var searchQuery = searchInput.value.toLowerCase();
 
+    var numericSearchQuery = searchQuery.replace(/\D/g, '');
+    searchInput.value = numericSearchQuery;
+
     var apiUrl = 'https://cybertechlogistic.online/app/controller/' +
         'get-delivery-list.php?partner_id=' + partnerId;
 
@@ -165,12 +185,7 @@ function performSearch() {
             if (data) {
                 var filteredList = data.filter(delivery => {
                     var orderIdString = String(delivery.order_id);
-
-                    return (
-                        orderIdString.toLowerCase().includes(searchQuery) ||
-                        delivery.destination_address.toLowerCase().includes(searchQuery) ||
-                        delivery.rider_name.toLowerCase().includes(searchQuery)
-                    );
+                    return orderIdString.includes(numericSearchQuery);
                 });
 
                 updateTrackingTable(filteredList);
@@ -223,4 +238,22 @@ function goBack() {
 
     var filterButton = document.getElementById('filterButton');
     filterButton.style.display = 'block';
+}
+
+function showAllItems() {
+    var allRows = document.querySelectorAll('.delivery-item');
+    allRows.forEach(function (row) {
+        row.style.display = 'flex';
+    });
+}
+
+function showOnlyThreeItems() {
+    var allRows = document.querySelectorAll('.delivery-item');
+    allRows.forEach(function (row, index) {
+        if (index >= 3) {
+            row.style.display = 'none';
+        } else {
+            row.style.display = 'flex';
+        }
+    });
 }
