@@ -157,7 +157,7 @@ function applyFilter() {
                     } else if (pendingCheckbox.checked) {
 			return delivery.status === 0 || delivery.status === 1 || delivery.status === 2;
                     } else if (completedCheckbox.checked) {
-                        return delivery.status !== 3; 
+                        return delivery.status === 3; 
                     } else {
                         return true; 
                     }
