@@ -77,7 +77,7 @@ function updateTrackingTable(deliveryList) {
             locationCell.textContent = delivery.destination_address;
 
             var descriptionCell = row.insertCell(2);
-            descriptionCell.textContent = delivery.status === 1 ? 'Pending' : 'Completed';
+            descriptionCell.textContent = getStatusDescription(delivery.status);
 
             var senderNameCell = row.insertCell(3);
             senderNameCell.textContent = delivery.source_name; // assuming 'source_name' is the key from your API response
@@ -112,6 +112,21 @@ function updateTrackingTable(deliveryList) {
     }
 }
 
+function getStatusDescription(status) {
+    switch (status) {
+        case 0:
+            return 'Pending';
+        case 1:
+            return 'In Transit';
+        case 2:
+            return 'Shipped Out';
+        case 3:
+            return 'Delivered';
+        default:
+            return 'Unknown Status';
+    }
+}
+
 function showFilterModal() {
     var filterModal = document.getElementById('filterModal');
     filterModal.style.display = 'block';
@@ -140,9 +155,9 @@ function applyFilter() {
                     if (pendingCheckbox.checked && completedCheckbox.checked) {
                         return true; 
                     } else if (pendingCheckbox.checked) {
-                        return delivery.status === 1; 
+			return delivery.status === 0 || delivery.status === 1 || delivery.status === 2;
                     } else if (completedCheckbox.checked) {
-                        return delivery.status !== 1; 
+                        return delivery.status !== 3; 
                     } else {
                         return true; 
                     }
