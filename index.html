@@ -1,35 +1,51 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <link rel="icon" href="/favicon.ico" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#000000" />
-  <title>main page</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins%3A700"/>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A700"/>
-  <link rel="stylesheet" href="main_page.css"/>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <title>User Login</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins%3A700%2C800"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A700%2C800"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="./app/QDRunner/login_page/login_page.css"/>
 </head>
 <body>
-<div class="main-page">
-  <div class="content-2">
-    <p class="proceed-2">Proceed</p>
-    <a href="app/QDExpress/login_page/">
-    <img class="arrowright-2" src="./assets/arrowright-2.png"/>
-    </a>
-  </div>
-  <div class="container">
-  </div>
-  <div class="ellipse">
-  </div>
-  <img class="truck-icon" src="assets/truck-icon.png"/>
-  <p class="qdpexpress">QDPExpress</p>
-  <div class="content-1">
-    <p class="proceed-1">Proceed</p>">
-    <a href="app/QDExpress/login_page/">
-    <img class="arrowright-1" src="assets/arrowright.png"/>
-    </a>
-  </div>
-</div>
+    <div class="user-login">
+        <img class="express-icon" src="./app/QDRunner/upload/qdexpress-logo.png"/>
+        <div class="login-details">
+            <p id="errorMessage"></p>
+        </div>
+
+        <p class="member-login">MEMBER LOGIN</p>
+
+        <div class="input-box">
+            <input type="text" id="user" class="input-username"
+                placeholder="Username or Email" autofocus="1" oninput="toggleClearButton()" required>
+            <button class="clear-button" onclick="clearInput()">X</button>
+        </div>
+
+        <div class="input-box">
+            <input type="password" id="pass" class="input-password"
+                placeholder="Password" autofocus="1" required oninput="togglePasswordButton()">
+            <button class="toggle-password" onclick="togglePasswordVisibility()" style="display: none;">
+                <i class="fas fa-eye"></i>
+            </button>
+        </div>
+
+        <div class="login">
+            <button id="loginButton" onclick="performLogin()">Login</button>
+        </div>
+
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <p id="modalMessage"></p>
+                <button onclick="closeModal()">Okay</button>
+            </div>
+        </div>        
+    </div>
+    <script src="./app/QDRunner/login_page/login_page.js"></script>
 </body>
 </html>

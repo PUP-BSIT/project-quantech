@@ -93,3 +93,22 @@ button#updateStatusBtn {
     flex: 0 0 80%; 
     margin: 0;
 }
+
+@media screen and (max-width: 600px) {
+    .app-container {
+        padding: 10px;
+    }
+
+    .order-details {
+        flex-direction: column; 
+    }
+
+    .receiver-details,
+    .sender-details {
+        width: 100%; 
+    }
+
+    .detail-row {
+        flex-direction: column; 
+    }
+}
