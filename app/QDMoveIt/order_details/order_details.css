@@ -4,8 +4,7 @@
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    margin-top: 20px;   
-    
+    margin-top: 20px;
 }
 
 body {
@@ -33,9 +32,8 @@ body {
 
 .order-details {
     display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    margin-bottom: 20px;
+    flex-wrap: nowrap;
+    justify-content: center;
 }
 
 .receiver-details h2,
@@ -44,27 +42,19 @@ body {
     color:#0D2D4C;
 }
 
-@media only screen and (max-width: 600px) {
-    .receiver-details,
-    .sender-details {
-        width: 100%;    
-        margin-bottom: 20px;
-        box-sizing: border-box;
-    }
-}
-
 .receiver-details {
+    width: 100%;
     background-color: #DDEBF9;
-    padding: 10px;
-    width: calc(47% - 2px);
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 .sender-details {
+    width: 100%;
     background-color: #73b9ff;
-    padding: 10px;
-    width: calc(47% - 2px);
+    padding: 20px;
+    box-sizing: border-box;
 }
-
 
 
 button {
@@ -95,7 +85,7 @@ button#updateStatusBtn {
 }
 
 .detail-header {
-    flex: 0 0 60%; 
+    flex: 0 0 30%; 
     font-size: 20px;
     font-weight: 600;
     color:#0D2D4C;
@@ -103,6 +93,25 @@ button#updateStatusBtn {
 }
 
 .detail-info {
-    flex: 0 0 20%; 
-    margin: 5px;
+    flex: 0 0 70%; 
+    margin: 0;
+}
+
+@media screen and (max-width: 600px) {
+    .app-container {
+        padding: 10px;
+    }
+
+    .order-details {
+        flex-direction: column; 
+    }
+
+    .receiver-details,
+    .sender-details {
+        width: 100%; 
+    }
+
+    .detail-row {
+        flex-direction: column; 
+    }
 }
