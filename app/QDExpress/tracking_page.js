@@ -22,7 +22,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const savedUpdates =
       JSON.parse(localStorage.getItem(`updates_${orderId}`)) || [];
     displaySavedUpdates(savedUpdates);
-    fetchDeliveryStatus(orderId);
   } else {
     console.error("orderId not found in URL parameters");
   }
@@ -388,49 +387,4 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function hours12(date) {
   return (date.getHours() + 24) % 12 || 12;
-}
-
-function fetchDeliveryStatus(orderId) {
-  let partnerId = localStorage.getItem("partner_id");
-  let apiUrl =
-    "https://cybertechlogistic.online/app/controller/get-delivery-list.php?partner_id=" +
-    partnerId;
-
-  fetch(apiUrl)
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
-      return response.json();
-    })
-    .then((deliveryList) => {
-      const orderDetails = deliveryList.find(
-        (delivery) => delivery.order_id == orderId
-      );
-
-      if (orderDetails) {
-        const deliveryStatus = getStatusText(orderDetails.status);
-        // Display the status in the designated element
-        const deliveryStatusElement = document.getElementById("deliveryStatus");
-        deliveryStatusElement.textContent = `Delivery Status: ${deliveryStatus}`;
-      } else {
-        console.error("Order details not found for orderId:", orderId);
-      }
-    })
-    .catch((error) => {
-      console.error("Error fetching delivery list:", error);
-    });
-}
-
-function getStatusText(statusCode) {
-  // Define the mapping of status codes to text
-  const statusTexts = {
-    0: "Pending",
-    1: "In Transit",
-    2: "Shipped Out",
-    3: "Delivered",
-  };
-
-  // Return the corresponding text for the given status code
-  return statusTexts[statusCode] || "Unknown Status";
 }

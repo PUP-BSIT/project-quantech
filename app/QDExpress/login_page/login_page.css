@@ -158,6 +158,17 @@ body {
     color: #333;
 }
 
+
+@media only screen and (max-width: 375px) {
+    .user-login {
+        padding: 20px;
+    }
+
+    .login-details {
+        padding: 7.5em 1.5em 4em 1.5em;
+    }
+}
+
 .modal {
     display: none;
     position: fixed;
@@ -166,7 +177,7 @@ body {
     z-index: 1;
     left: 0;
     right: 0;
-    top: 50%; 
+    top: 50%;  /* Center vertically at 50% */
     transform: translateY(-23%);
     width: 30%;
     height: 100%;
@@ -175,7 +186,7 @@ body {
 }
 
 .modal-content {
-    background-color: #114981;
+    background-color: azure;
     margin: 25% auto;
     margin-bottom: 5px;
     padding: 30px;
@@ -185,12 +196,12 @@ body {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(33, 29, 29, 0.2);
     font-size: 18px;
-    color: white;
+    color: #114981;
 }
 
 .modal-message {
     font-size: 30px;
-    color: #114981;
+    color: #    ;
 }
 
 .close {
@@ -200,6 +211,7 @@ body {
     font-weight: bold;
     cursor: pointer;
 }
+
 
 .modal button {
     width: 13.5rem;
@@ -217,4 +229,37 @@ body {
 
 .modal button:hover {
     background-color: #23231a;
+}
+
+
+
+@media only screen and (max-width: 768px) {
+    body {
+        width: 100%; 
+    }
+
+    .user-login {
+        height: auto; 
+    }
+
+    .login-details {
+        width: 100%; 
+        left: 0; 
+        top: 0;
+        margin-top: 20px; 
+    }
+
+    .input-username,
+    .input-password,
+    .toggle-password,
+    .login > :is(input, button),
+    .clear-button {
+        width: 100%;
+        left: 0; 
+        margin-top: 20px; 
+    }
+
+    .clear-button {
+        top: 30rem; 
+    }
 }

@@ -175,7 +175,7 @@ body {
 }
 
 .modal-content {
-    background-color: #114981;
+    background-color: azure;
     margin: 25% auto;
     margin-bottom: 5px;
     padding: 30px;
@@ -185,12 +185,12 @@ body {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(33, 29, 29, 0.2);
     font-size: 18px;
-    color: white;
+    color: #114981;
 }
 
 .modal-message {
     font-size: 30px;
-    color: #114981;
+    color: #    ;
 }
 
 .close {

@@ -1,4 +1,3 @@
-
 * {
   margin: 0;
   padding: 0;
@@ -419,5 +418,22 @@ form {
   width: 100%;
 }
 
+.tracking-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-		
+.delivery-status-container {
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  color: #0158b5; 
+  text-align: center;
+  font-size: 15px;
+}
+
+#deliveryStatus {
+  margin: 0;
+}
+
