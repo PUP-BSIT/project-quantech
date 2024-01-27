@@ -1,3 +1,14 @@
+.app-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-top: 20px;
+    position: relative;
+}
+
+
 .deliveries-list {
     margin-bottom: 30px;
 }
@@ -75,13 +86,12 @@ tr:hover {
     display: block;
 }
 
-.view-more-button,
-.view-less-button {
+.view-more-button, .view-less-button {
     display: block;
     margin: 20px auto;
     padding: 10px;
-    background-color: #0d44af; 
-    color: #fff; 
+    background-color: #0d44af;
+    color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -104,7 +114,7 @@ tr:hover {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 70%;
+    width: 60%;
     margin: 0 auto;
     position: relative;
 }
@@ -115,15 +125,15 @@ tr:hover {
     border-radius: 60px; 
     box-sizing: border-box;
     outline: none;
-    width: 80%; 
+    width: 90%; 
     background-color: #d3e6fd; 
     padding-right: 40px; 
 }
 
 .search-icon {
     position: absolute;
-    right: 120px;
-    top: 40%;
+    right: 80px; /* Adjusted for mobile */
+    top: 40%; /* Adjusted for mobile */
     transform: translateY(-50%);
     max-width: 20px; 
     cursor: pointer;
@@ -217,7 +227,6 @@ tr:hover {
 
 .filter-button {
     padding: 3px;
-    margin-right: 60px;
     margin-bottom: 10px;
     cursor: pointer;
     display: inline-block;
@@ -295,7 +304,6 @@ tr:hover {
     color: black;
 }
 
-
 @media screen and (max-width: 600px) {
     .delivery-item {
         flex-direction: column; 
@@ -311,5 +319,101 @@ tr:hover {
         padding: 10px; 
     }
 
- 
+    .search-input-container {
+        width: 100%; 
+    }
+
+    .search-input {
+        padding: 13px;
+    border: none;
+    border-radius: 60px;
+    box-sizing: border-box;
+    outline: none;
+    width: 80%;
+    background-color: #d3e6fd;
+    padding-right: 40px
+    }
+
+    .search-icon {
+        position: absolute;
+        right: 120px;
+        top: 40%;
+        transform: translateY(-50%);
+        max-width: 20px;
+        cursor: pointer;
+    }
+}
+
+.weather-widget-container {
+    position: relative; 
+    margin: 20px auto; 
+    max-width: 300px; 
+    width: 100%; 
+}
+
+.weather-info {
+    width: 100%; 
+    height: auto; 
+}
+
+.tracking-table-container {
+    display: flex;
+    justify-content: center;
+}
+
+.tracking-table {
+   
+        margin: 20px auto; 
+        max-width: 100%; 
+        overflow-x: auto; 
+    }
+
+
+table {
+    width: auto; 
+    justify-content: center;
+
+}
+
+th, td {
+    white-space: nowrap; 
+}
+
+.header-container {
+    width: 100%; 
+}
+
+
+@media screen and (max-width: 412px) {
+    .app-container {
+        padding: 10px;
+    }
+    .additional-text {
+        padding: 10px;
+        font-size: 16px;
+    }
+    .header-container {
+        margin-top: 20px;
+    }
+    .weather-widget-container {
+        margin-top: 10px;
+    }
+    .weather-info {
+        padding: 10px;
+    }
+    .search-input-container {
+        width: 90%;
+    }
+    .search-input {
+        padding: 10px;
+    }
+    .search-icon {
+        max-width: 15px;
+    }
+    .filter-button {
+        margin-right: 10px;
+    }
+    .modal-content {
+        width: 280px;
+    }
 }
