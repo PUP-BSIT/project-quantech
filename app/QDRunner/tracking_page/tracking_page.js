@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const orderId = urlParams.get("orderId");
   console.log("Fetched orderId from URL parameters:", orderId);
 
-  const sessionTimeout = 20 * 1000;
+  const sessionTimeout = 60 * 60 * 1000;
 
   function logoutUser(){
       console.log("User logged out");
