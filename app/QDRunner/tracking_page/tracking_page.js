@@ -15,6 +15,31 @@ document.addEventListener("DOMContentLoaded", function () {
   const orderId = urlParams.get("orderId");
   console.log("Fetched orderId from URL parameters:", orderId);
 
+  const sessionTimeout = 20 * 1000;
+
+  function logoutUser(){
+      console.log("User logged out");
+      window.location.href = "../";
+  }
+
+  let sessionTimer;
+
+  function startSessionTimer(){
+      sessionTimer = setTimeout(() => {
+          logoutUser();
+      }, sessionTimeout);
+  }
+
+  function resetSessionTimer(){
+      clearTimeout(sessionTimer);
+      startSessionTimer();
+  }
+
+  document.addEventListener("mousemove", resetSessionTimer);
+  document.addEventListener("keydown", resetSessionTimer);
+
+  startSessionTimer();
+  
   if (orderId) {
     orderIdElement.textContent = orderId;
     fetchDeliveryDetails(orderId);
